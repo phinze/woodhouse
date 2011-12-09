@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Woodhouse' target in the 'Woodhouse' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
