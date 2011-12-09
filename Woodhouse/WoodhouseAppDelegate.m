@@ -13,28 +13,72 @@
 @synthesize statusMenu;
 
 - (void) dealloc {
-    [statusItem release];
-    [statusMenu release];
-    [timer release];
+  [statusItem release];
+  [statusMenu release];
+  [timer release];
 }
 
 - (void) updateBuilds:(NSTimer*)theTimer {
-    NSLog(@"updating builds");
+  NSLog(@"updating builds");
+  
+  responseData = [[NSMutableData data] retain];
+  
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://user:pass@jenkins.example.com/cc.xml"]];
+  [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+  [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+  [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+  [[NSAlert alertWithError:error] runModal];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  NSString *str =  [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+  NSLog(@"Got results: %@", str);
+  
+  NSError *error;
+  NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:responseData options:NSXMLDocumentTidyXML error:&error];
+  
+  NSString *xpathQueryString = @"//Projects/Project";
+
+  NSArray *newItemsNodes = [[document rootElement] nodesForXPath:xpathQueryString error:&error];
+  if (error)
+  {
+    [[NSAlert alertWithError:error] runModal];
+    return;
+  }
+  
+  for (NSXMLElement *node in newItemsNodes)
+  {
+    NSString *name = [[node attributeForName:@"name"] stringValue]; 
+    NSLog(@"Name: %@", name); 
+  }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
-    [statusItem setMenu:statusMenu];
-    [statusItem setTitle:@"Woodhouse"];
-    [statusItem setHighlightMode:YES];
- 
-    timer = [[NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+  statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+  [statusItem setMenu:statusMenu];
+  [statusItem setTitle:@"Woodhouse"];
+  [statusItem setHighlightMode:YES];
+  
+  timer = [[NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
+  [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 - (void) quit:(id)sender {
-    [NSApp terminate:sender];
+  [NSApp terminate:sender];
 }
 
 @end

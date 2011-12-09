@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate> {
+@interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate, NSURLConnectionDelegate> {
     NSStatusItem *statusItem;
     NSTimer *timer;
+    NSMutableData *responseData;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
