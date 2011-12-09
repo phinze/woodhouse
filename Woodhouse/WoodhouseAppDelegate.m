@@ -23,7 +23,13 @@
   
   responseData = [[NSMutableData data] retain];
   
-  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://user:pass@jenkins.example.com/cc.xml"]];
+//  [[NSUserDefaults standardUserDefaults] setObject:@"https://user:pass@server/cc.xml" forKey:@"Jenkins URL"];
+//  [[NSUserDefaults standardUserDefaults] synchronize];
+  
+  NSString *url = [[NSUserDefaults standardUserDefaults] objectForKey:@"Jenkins URL"];
+
+  
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
   [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
 }
 
