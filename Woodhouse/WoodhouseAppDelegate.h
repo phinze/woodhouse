@@ -14,6 +14,7 @@
   NSTimer *timer;
   NSMutableData *responseData;
   PanelController *panelController;
+  NSMutableArray *builds;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;

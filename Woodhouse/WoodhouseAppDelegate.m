@@ -65,10 +65,14 @@
     return;
   }
   
+  [builds release];
+  builds = [[[NSMutableArray alloc] init] retain];
+  
   for (NSXMLElement *node in newItemsNodes)
   {
     NSString *name = [[node attributeForName:@"name"] stringValue]; 
     NSLog(@"Name: %@", name); 
+    [builds addObject:name];
   }
 }
 
@@ -110,6 +114,9 @@
     panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
     panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
     [panel setFrame:panelRect display:YES];
+    
+    if(builds != nil) 
+      panelController.builds = builds;
   
   }
 }

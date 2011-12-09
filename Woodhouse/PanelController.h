@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PanelController : NSWindowController
+@interface PanelController : NSWindowController <NSTableViewDataSource>
+
+@property (nonatomic, retain) IBOutlet NSTableView *buildTableView;
+@property (nonatomic, retain) NSArray *builds;
 
 @end
