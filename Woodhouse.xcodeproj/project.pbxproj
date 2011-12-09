@@ -21,6 +21,7 @@
 		A7ADD8281492B4CC009B621E /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ADD8271492B4CC009B621E /* Panel.xib */; };
 		A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ADD82B1492B5BA009B621E /* PanelController.m */; };
 		A7ADD8331492BCEA009B621E /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = A7ADD8321492BCEA009B621E /* watchdog-ok.png */; };
+		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		A7ADD82A1492B5BA009B621E /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
 		A7ADD82B1492B5BA009B621E /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
 		A7ADD8321492BCEA009B621E /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "watchdog-ok.png"; path = "../../../watchdog-ok.png"; sourceTree = "<group>"; };
+		A7C8930E1492CB4600A06695 /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
+		A7C8930F1492CB4600A06695 /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				A7ADD8271492B4CC009B621E /* Panel.xib */,
 				A7ADD82A1492B5BA009B621E /* PanelController.h */,
 				A7ADD82B1492B5BA009B621E /* PanelController.m */,
+				A7C8930E1492CB4600A06695 /* Build.h */,
+				A7C8930F1492CB4600A06695 /* Build.m */,
 			);
 			path = Woodhouse;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				A777CF6A1492956F00FC97D3 /* main.m in Sources */,
 				A777CF711492956F00FC97D3 /* WoodhouseAppDelegate.m in Sources */,
 				A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */,
+				A7C893101492CB4600A06695 /* Build.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

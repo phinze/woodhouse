@@ -7,6 +7,7 @@
 //
 
 #import "WoodhouseAppDelegate.h"
+#import "Build.h"
 
 @implementation WoodhouseAppDelegate
 
@@ -70,9 +71,10 @@
   
   for (NSXMLElement *node in newItemsNodes)
   {
-    NSString *name = [[node attributeForName:@"name"] stringValue]; 
-    NSLog(@"Name: %@", name); 
-    [builds addObject:name];
+    NSString *name = [[node attributeForName:@"name"] stringValue];
+    NSString *status = [[node attributeForName:@"lastBuildStatus"] stringValue];
+    NSLog(@"%@ %@", name, status); 
+    [builds addObject:[[Build alloc] initWithName:name andStatus:status]];
   }
 }
 

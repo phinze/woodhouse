@@ -7,6 +7,7 @@
 //
 
 #import "PanelController.h"
+#import "Build.h"
 
 @implementation PanelController 
 
@@ -22,13 +23,20 @@
   return [builds count];
 }
 
-
-- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-  return [[NSCell alloc] initTextCell:[builds objectAtIndex:row]];
-}
-
 - (id) tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-  return [builds objectAtIndex:row];
+  Build *build = [builds objectAtIndex:row];
+  if ([[tableColumn identifier] isEqualToString:@"build"]) {
+    return build.name;
+  } else {
+    return build.status;
+  }
 }
+
+//- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+//  if([tableColumn identifier] isEqualToString:<#(NSString *)#>
+//  return [[NSCell alloc] initTextCell:[builds objectAtIndex:row]];
+//}
+
+
 
 @end
