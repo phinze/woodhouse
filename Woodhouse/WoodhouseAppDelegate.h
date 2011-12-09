@@ -10,6 +10,7 @@
 
 @interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate> {
     NSStatusItem *statusItem;
+    NSTimer *timer;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
