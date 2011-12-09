@@ -10,11 +10,19 @@
 
 @implementation WoodhouseAppDelegate
 
-@synthesize window;
+@synthesize statusMenu;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+    [statusItem setMenu:statusMenu];
+    [statusItem setTitle:@"Woodhouse"];
+    [statusItem setHighlightMode:YES];
+    
+}
+
+- (void) quit:(id)sender {
+    [NSApp terminate:sender];
 }
 
 @end

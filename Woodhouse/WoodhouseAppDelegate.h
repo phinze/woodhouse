@@ -9,9 +9,11 @@
 #import <Cocoa/Cocoa.h>
 
 @interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
+    NSStatusItem *statusItem;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
+
+- (IBAction) quit:(id)sender;
 
 @end
