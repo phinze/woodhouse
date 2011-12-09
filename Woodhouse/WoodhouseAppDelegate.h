@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PanelController.h"
 
 @interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate, NSURLConnectionDelegate> {
-    NSStatusItem *statusItem;
-    NSTimer *timer;
-    NSMutableData *responseData;
+  NSStatusItem *statusItem;
+  NSTimer *timer;
+  NSMutableData *responseData;
+  PanelController *panelController;
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;

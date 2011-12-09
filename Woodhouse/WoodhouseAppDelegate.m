@@ -74,9 +74,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]];
+  
   statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
 
-  [statusItem setTitle:@"Woodhouse"];
+  [statusItem setImage:image];
   [statusItem setHighlightMode:YES];
   
   [statusItem setAction:@selector(handleClick:)];
@@ -95,7 +97,20 @@
   if([event modifierFlags] & NSAlternateKeyMask) {
     [statusItem popUpStatusItemMenu:statusMenu];
   } else {
-    NSLog(@"normal clicky");
+    if(panelController == nil) {
+      panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
+    }
+    
+    NSWindow *panel = [panelController window];
+    [panel makeKeyAndOrderFront:nil];
+    
+    NSRect panelRect = [panel frame];
+    NSRect screenRect = [[panel screen] frame];
+    
+    panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
+    panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
+    [panel setFrame:panelRect display:YES];
+  
   }
 }
 
