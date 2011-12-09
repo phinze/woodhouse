@@ -18,4 +18,6 @@
 
 - (IBAction) quit:(id)sender;
 
+- (IBAction) handleClick:(id)sender;
+
 @end

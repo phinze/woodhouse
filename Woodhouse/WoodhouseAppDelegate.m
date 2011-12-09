@@ -75,16 +75,28 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
-  [statusItem setMenu:statusMenu];
+
   [statusItem setTitle:@"Woodhouse"];
   [statusItem setHighlightMode:YES];
   
+  [statusItem setAction:@selector(handleClick:)];
+  [statusItem setTarget:self];
+
   timer = [[NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
   [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 - (void) quit:(id)sender {
   [NSApp terminate:sender];
+}
+
+- (void) handleClick:(id)sender {
+  NSEvent *event = [NSApp currentEvent];
+  if([event modifierFlags] & NSAlternateKeyMask) {
+    [statusItem popUpStatusItemMenu:statusMenu];
+  } else {
+    NSLog(@"normal clicky");
+  }
 }
 
 @end
