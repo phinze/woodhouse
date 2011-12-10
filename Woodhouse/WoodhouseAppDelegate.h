@@ -8,13 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PanelController.h"
+#import "BuildStatusChecker.h"
 
 @interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate, NSURLConnectionDelegate> {
   NSStatusItem *statusItem;
-  NSTimer *timer;
-  NSMutableData *responseData;
   PanelController *panelController;
-  NSMutableArray *builds;
+  BuildStatusChecker *buildStatusChecker;
+  
+
 }
 
 @property (nonatomic, retain) IBOutlet NSMenu *statusMenu;

@@ -32,11 +32,4 @@
   }
 }
 
-//- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-//  if([tableColumn identifier] isEqualToString:<#(NSString *)#>
-//  return [[NSCell alloc] initTextCell:[builds objectAtIndex:row]];
-//}
-
-
-
 @end
