@@ -14,7 +14,7 @@
   NSStatusItem *statusItem;
   PanelController *panelController;
   BuildStatusChecker *buildStatusChecker;
-  
+  NSWindow *panelWindow;
 
 }
 

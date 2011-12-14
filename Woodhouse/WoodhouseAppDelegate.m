@@ -47,22 +47,26 @@
     if(panelController == nil) {
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
     }
-    
-    NSWindow *panel = [panelController window];
-    
-    NSRect panelRect = [panel frame];
-    NSRect screenRect = [[panel screen] frame];
-    
-    panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
-    panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
-    [panel setFrame:panelRect display:YES];
-    
-    if([buildStatusChecker builds] != nil) 
-      panelController.builds = [buildStatusChecker builds];
-    
-    [panel makeKeyAndOrderFront:nil];
 
-  
+    if(panelWindow == nil) {
+      panelWindow = [panelController window];
+      NSRect panelRect = [panelWindow frame];
+      NSRect screenRect = [[panelWindow screen] frame];
+      
+      panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
+      panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
+      [panelWindow setFrame:panelRect display:YES];
+      [panelWindow setLevel:NSFloatingWindowLevel];
+      
+      if([buildStatusChecker builds] != nil) 
+        panelController.builds = [buildStatusChecker builds];
+    } else {
+      if([panelWindow isVisible]) {
+        panelWindow.isVisible = FALSE;
+      } else {
+        [panelWindow makeKeyAndOrderFront:nil];
+      }
+    }
   }
 }
 
