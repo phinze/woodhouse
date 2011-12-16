@@ -21,6 +21,7 @@
 		A7ADD8281492B4CC009B621E /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ADD8271492B4CC009B621E /* Panel.xib */; };
 		A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ADD82B1492B5BA009B621E /* PanelController.m */; };
 		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
+		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FE7A0D1493121000A02CFE /* watchdog-ok.png */; };
 		D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,8 @@
 		A7ADD82B1492B5BA009B621E /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
 		A7C8930E1492CB4600A06695 /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
 		A7C8930F1492CB4600A06695 /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
+		D059F1461493D90800E89E4C /* BuildStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusItemView.h; sourceTree = "<group>"; };
+		D059F1471493D90800E89E4C /* BuildStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusItemView.m; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
 		D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusChecker.h; sourceTree = "<group>"; };
 		D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusChecker.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				A7C8930F1492CB4600A06695 /* Build.m */,
 				D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */,
 				D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */,
+				D059F1461493D90800E89E4C /* BuildStatusItemView.h */,
+				D059F1471493D90800E89E4C /* BuildStatusItemView.m */,
 				A7ADD82A1492B5BA009B621E /* PanelController.h */,
 				A7ADD82B1492B5BA009B621E /* PanelController.m */,
 				A777CF6F1492956F00FC97D3 /* WoodhouseAppDelegate.h */,
@@ -290,6 +295,7 @@
 				A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */,
 				A7C893101492CB4600A06695 /* Build.m in Sources */,
 				D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */,
+				D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

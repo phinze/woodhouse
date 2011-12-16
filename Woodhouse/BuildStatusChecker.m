@@ -13,16 +13,17 @@
 
 @synthesize builds;
 
-- (void) dealloc {
-  [timer release];
-}
-
 - (id) init {
   if (self = [super init]){
     timer = [[NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
   }
   return self;
+}
+
+
+- (void) dealloc {
+  [timer release];
 }
 
 - (void) updateBuilds:(NSTimer*)theTimer {
@@ -57,8 +58,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-  NSString *str =  [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
-  NSLog(@"Got results: %@", str);
+//  NSString *str =  [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+//  NSLog(@"Got results: %@", str);
   
   NSError *error;
   NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:responseData options:NSXMLDocumentTidyXML error:&error];
@@ -79,7 +80,7 @@
   {
     NSString *name = [[node attributeForName:@"name"] stringValue];
     NSString *status = [[node attributeForName:@"lastBuildStatus"] stringValue];
-    NSLog(@"%@ %@", name, status); 
+//    NSLog(@"%@ %@", name, status); 
     [builds addObject:[[Build alloc] initWithName:name andStatus:status]];
   }
 }
