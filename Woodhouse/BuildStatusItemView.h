@@ -11,19 +11,16 @@
 #import "BuildStatusChecker.h"
 
 @interface BuildStatusItemView : NSView <NSMenuDelegate> {
-  NSStatusItem *statusItem;
-  NSString *title;
   NSDictionary *statusIcons;
   PanelController *panelController;
   NSWindow *panelWindow;
-  BuildStatusChecker *buildStatusChecker;
 }
 
 @property (retain, nonatomic) NSStatusItem *statusItem;
 @property (retain, nonatomic) BuildStatusChecker *buildStatusChecker;
 @property (retain, nonatomic) NSString *title;
 
-@property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
+@property (nonatomic, retain) NSMenu *statusMenu;
 
 #define StatusItemViewPaddingWidth  6
 #define StatusItemViewPaddingHeight 3

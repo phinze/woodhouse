@@ -13,18 +13,22 @@
 @synthesize statusItem;
 @synthesize statusMenu;
 @synthesize buildStatusChecker;
+@synthesize title;
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-      statusItem = nil;
-      title = @"";
+      self.statusItem = nil;
+      self.title = @"";
       statusIcons = [[NSDictionary dictionaryWithObjectsAndKeys:
         [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]] retain], @"ok",
         nil
       ] retain];
       NSLog(@"%@", statusIcons);
+
+      self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
+      [statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
 
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
     }
@@ -40,6 +44,10 @@
   [super dealloc];
 }
 
+
+- (BOOL) isMenuVisible {
+  return panelWindow != nil && [panelWindow isVisible];
+}
 
 - (NSColor *)titleForegroundColor {
   if ([self isMenuVisible]) {
@@ -63,7 +71,7 @@
 }
 
 - (NSRect)titleBoundingRect {
-  return [title boundingRectWithSize:NSMakeSize(1e100, 1e100)
+  return [self.title boundingRectWithSize:NSMakeSize(1e100, 1e100)
                              options:0
                           attributes:[self titleAttributes]];
 }
@@ -83,14 +91,6 @@
   }
 }
 
-- (NSString *)title {
-  return title;
-}
-
-- (BOOL) isMenuVisible {
-  return panelWindow != nil && [panelWindow isVisible];
-}
-
 - (void)drawRect:(NSRect)dirtyRect
 {
   [[NSGraphicsContext currentContext] setShouldAntialias:YES];
@@ -102,7 +102,7 @@
   NSPoint origin = NSMakePoint(StatusItemViewPaddingWidth,
                                StatusItemViewPaddingHeight);
   [[statusIcons objectForKey:@"ok"] drawAtPoint:origin fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
-  [title drawAtPoint:origin
+  [self.title drawAtPoint:origin
       withAttributes:[self titleAttributes]];
 }
 
