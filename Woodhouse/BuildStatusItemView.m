@@ -119,6 +119,7 @@
     panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
     panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
     [panelWindow setFrame:panelRect display:YES];
+    [panelWindow setLevel:NSFloatingWindowLevel];
     [panelWindow makeKeyAndOrderFront:nil];
   }
   [self setNeedsDisplay:YES];
