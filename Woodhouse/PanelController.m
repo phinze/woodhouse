@@ -8,14 +8,22 @@
 
 #import "PanelController.h"
 #import "Build.h"
+#import "BuildStatusChecker.h"
 
 @implementation PanelController 
 
 @synthesize buildTableView;
 @synthesize builds;
 
-- (void) setBuilds:(NSArray *)newBuilds {
-  builds = newBuilds;
+- (id)initWithWindowNibName:(NSString *)windowNibName {
+  if (self = [super initWithWindowNibName:windowNibName]) {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
+  }
+  return self;
+}
+
+-(void) buildsDidUpdate:(NSNotification*)notification {
+  self.builds = ((BuildStatusChecker*)notification.object).builds;
   [buildTableView reloadData];
 }
 

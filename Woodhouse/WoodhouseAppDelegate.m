@@ -18,8 +18,6 @@
   [statusMenu release];
 }
 
-
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]];
@@ -31,8 +29,9 @@
   
   [statusItem setAction:@selector(handleClick:)];
   [statusItem setTarget:self];
-  
+
   buildStatusChecker = [[BuildStatusChecker alloc] init];
+  panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
 }
 
 - (void) quit:(id)sender {
@@ -44,10 +43,6 @@
   if([event modifierFlags] & NSAlternateKeyMask) {
     [statusItem popUpStatusItemMenu:statusMenu];
   } else {
-    if(panelController == nil) {
-      panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
-    }
-
     if(panelWindow == nil) {
       panelWindow = [panelController window];
       NSRect panelRect = [panelWindow frame];
@@ -57,9 +52,6 @@
       panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
       [panelWindow setFrame:panelRect display:YES];
       [panelWindow setLevel:NSFloatingWindowLevel];
-      
-      if([buildStatusChecker builds] != nil) 
-        panelController.builds = [buildStatusChecker builds];
     } else {
       if([panelWindow isVisible]) {
         panelWindow.isVisible = FALSE;

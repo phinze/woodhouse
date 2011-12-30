@@ -9,20 +9,14 @@
 #import "BuildStatusChecker.h"
 #import "Build.h"
 
+#define BUILD_UPDATE_DELAY 5.0
+
 @implementation BuildStatusChecker
 
 @synthesize builds;
 
 - (void) dealloc {
   [timer release];
-}
-
-- (id) init {
-  if (self = [super init]){
-    timer = [[NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-  }
-  return self;
 }
 
 - (void) updateBuilds:(NSTimer*)theTimer {
@@ -39,6 +33,21 @@
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
   [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
 }
+ 
+- (void) scheduleNextCheck {
+  if(timer!=nil) [timer release];
+  timer = [[NSTimer timerWithTimeInterval:BUILD_UPDATE_DELAY target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
+  [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (id) init {
+  if (self = [super init]){
+    [self updateBuilds:nil];
+
+  }
+  return self;
+}
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -53,6 +62,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
   [[NSAlert alertWithError:error] runModal];
+  [self scheduleNextCheck];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -82,6 +92,9 @@
     NSLog(@"%@ %@", name, status); 
     [builds addObject:[[Build alloc] initWithName:name andStatus:status]];
   }
+
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"WoodhouseBuildsUpdated" object:self];
+  [self scheduleNextCheck];
 }
 
 
