@@ -19,14 +19,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  
+
   statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
   buildStatusChecker = [[BuildStatusChecker alloc] init];
-  
+
   BuildStatusItemView *buildStatusItemView = [[BuildStatusItemView alloc] init];
   buildStatusItemView.statusItem = statusItem;
   buildStatusItemView.buildStatusChecker = buildStatusChecker;
-  
+
   [statusItem setView:buildStatusItemView];
   [buildStatusItemView setTitle:@"HELLO WORLD"];
 }

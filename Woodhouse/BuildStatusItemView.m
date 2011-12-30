@@ -20,14 +20,15 @@
     if (self) {
       statusItem = nil;
       title = @"";
-      isMenuVisible = NO;
       statusIcons = [[NSDictionary dictionaryWithObjectsAndKeys:
         [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]] retain], @"ok",
         nil
       ] retain];
-      NSLog(@"%@", statusIcons); 
+      NSLog(@"%@", statusIcons);
+
+      panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
     }
-    
+
     return self;
 }
 
@@ -41,20 +42,20 @@
 
 
 - (NSColor *)titleForegroundColor {
-  if (isMenuVisible) {
+  if ([self isMenuVisible]) {
     return [NSColor whiteColor];
   }
   else {
     return [NSColor blackColor];
-  }    
+  }
 }
 
 - (NSDictionary *)titleAttributes {
   // Use default menu bar font size
   NSFont *font = [NSFont menuBarFontOfSize:0];
-  
+
   NSColor *foregroundColor = [self titleForegroundColor];
-  
+
   return [NSDictionary dictionaryWithObjectsAndKeys:
           font,            NSFontAttributeName,
           foregroundColor, NSForegroundColorAttributeName,
@@ -72,12 +73,12 @@
     [newTitle retain];
     [title release];
     title = newTitle;
-    
+
     // Update status item size (which will also update this view's bounds)
     NSRect titleBounds = [self titleBoundingRect];
     int newWidth = titleBounds.size.width + (2 * StatusItemViewPaddingWidth);
     [statusItem setLength:newWidth];
-    
+
     [self setNeedsDisplay:YES];
   }
 }
@@ -86,13 +87,17 @@
   return title;
 }
 
+- (BOOL) isMenuVisible {
+  return panelWindow != nil && [panelWindow isVisible];
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
   [[NSGraphicsContext currentContext] setShouldAntialias:YES];
   // Draw status bar background, highlighted if menu is showing
   [statusItem drawStatusBarBackgroundInRect:[self bounds]
-                              withHighlight:isMenuVisible];
-  
+                              withHighlight:[self isMenuVisible]];
+
   // Draw title string
   NSPoint origin = NSMakePoint(StatusItemViewPaddingWidth,
                                StatusItemViewPaddingHeight);
@@ -103,23 +108,20 @@
 
 - (void)mouseDown:(NSEvent *)event {
   NSLog(@"got mousedown");
-  if(panelController == nil) {
-    panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
+
+  if(panelWindow != nil && [panelWindow isVisible]) {
+    panelWindow.isVisible = FALSE;
+  } else {
+    panelWindow = [panelController window];
+    NSRect panelRect = [panelWindow frame];
+    NSRect screenRect = [[panelWindow screen] frame];
+
+    panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
+    panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
+    [panelWindow setFrame:panelRect display:YES];
+    [panelWindow makeKeyAndOrderFront:nil];
   }
-  
-  NSWindow *panel = [panelController window];
-  
-  NSRect panelRect = [panel frame];
-  NSRect screenRect = [[panel screen] frame];
-  
-  panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
-  panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
-  [panel setFrame:panelRect display:YES];
-  
-  if([buildStatusChecker builds] != nil) 
-    panelController.builds = [buildStatusChecker builds];
-  
-  [panel makeKeyAndOrderFront:nil];
+  [self setNeedsDisplay:YES];
 }
 
 - (void)rightMouseDown:(NSEvent *)event {
@@ -127,13 +129,11 @@
 }
 
 - (void)menuWillOpen:(NSMenu *)menu {
-  isMenuVisible = YES;
   [self setNeedsDisplay:YES];
 }
 
 - (void)menuDidClose:(NSMenu *)menu {
-  isMenuVisible = NO;
-  [menu setDelegate:nil];    
+  [menu setDelegate:nil];
   [self setNeedsDisplay:YES];
 }
 

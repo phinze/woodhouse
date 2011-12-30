@@ -15,8 +15,8 @@
   NSString *title;
   NSDictionary *statusIcons;
   PanelController *panelController;
+  NSWindow *panelWindow;
   BuildStatusChecker *buildStatusChecker;
-  BOOL isMenuVisible;
 }
 
 @property (retain, nonatomic) NSStatusItem *statusItem;

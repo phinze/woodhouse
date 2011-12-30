@@ -10,7 +10,7 @@
 #import "Build.h"
 #import "BuildStatusChecker.h"
 
-@implementation PanelController 
+@implementation PanelController
 
 @synthesize buildTableView;
 @synthesize builds;

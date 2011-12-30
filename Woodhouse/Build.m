@@ -19,7 +19,7 @@
       name = aName;
       status = aStatus;
     }
-    
+
     return self;
 }
 
