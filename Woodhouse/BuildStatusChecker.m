@@ -67,8 +67,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-  NSString *str =  [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
-  NSLog(@"Got results: %@", str);
+//  NSString *str =  [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+//  NSLog(@"Got results: %@", str);
   
   NSError *error;
   NSXMLDocument *document = [[NSXMLDocument alloc] initWithData:responseData options:NSXMLDocumentTidyXML error:&error];
@@ -89,7 +89,7 @@
   {
     NSString *name = [[node attributeForName:@"name"] stringValue];
     NSString *status = [[node attributeForName:@"lastBuildStatus"] stringValue];
-    NSLog(@"%@ %@", name, status); 
+//    NSLog(@"%@ %@", name, status); 
     [builds addObject:[[Build alloc] initWithName:name andStatus:status]];
   }
 

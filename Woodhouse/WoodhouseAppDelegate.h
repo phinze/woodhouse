@@ -10,18 +10,11 @@
 #import "PanelController.h"
 #import "BuildStatusChecker.h"
 
-@interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate, NSURLConnectionDelegate> {
+@interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate> {
   NSStatusItem *statusItem;
-  PanelController *panelController;
   BuildStatusChecker *buildStatusChecker;
-  NSWindow *panelWindow;
-
 }
 
-@property (nonatomic, retain) IBOutlet NSMenu *statusMenu;
 
-- (IBAction) quit:(id)sender;
-
-- (IBAction) handleClick:(id)sender;
 
 @end
