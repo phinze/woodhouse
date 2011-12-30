@@ -7,6 +7,7 @@
 //
 
 #import "BuildStatusItemView.h"
+#import "Build.h"
 
 @implementation BuildStatusItemView
 
@@ -15,6 +16,9 @@
 @synthesize buildStatusChecker;
 @synthesize title;
 
+#define SUCCESSFUL_BUILDS 0
+#define FAILED_BUILDS 1
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
@@ -22,15 +26,19 @@
       self.statusItem = nil;
       self.title = @"";
       statusIcons = [[NSDictionary dictionaryWithObjectsAndKeys:
-        [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]] retain], @"ok",
+        [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]] retain], @"Success",
+        [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-error" ofType:@"png"]] retain], @"Failure",
         nil
       ] retain];
-      NSLog(@"%@", statusIcons);
 
       self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
       [statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
 
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
+
+      buildCounts = [[[NSMutableDictionary alloc] init] retain];
+
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
     }
 
     return self;
@@ -58,7 +66,7 @@
   }
 }
 
-- (NSDictionary *)titleAttributes {
+- (NSDictionary *) textAttributes {
   // Use default menu bar font size
   NSFont *font = [NSFont menuBarFontOfSize:0];
 
@@ -70,45 +78,61 @@
           nil];
 }
 
-- (NSRect)titleBoundingRect {
-  return [self.title boundingRectWithSize:NSMakeSize(1e100, 1e100)
+- (int) widthOfText:(NSString *)string {
+  return [string boundingRectWithSize:NSMakeSize(1e100, 1e100)
                              options:0
-                          attributes:[self titleAttributes]];
+                          attributes:[self textAttributes]].size.width;
 }
 
-- (void)setTitle:(NSString *)newTitle {
-  if (![title isEqual:newTitle]) {
-    [newTitle retain];
-    [title release];
-    title = newTitle;
-
-    // Update status item size (which will also update this view's bounds)
-    NSRect titleBounds = [self titleBoundingRect];
-    int newWidth = titleBounds.size.width + (2 * StatusItemViewPaddingWidth);
-    [statusItem setLength:newWidth];
-
-    [self setNeedsDisplay:YES];
+- (void) buildsDidUpdate:(NSNotification*)notification {
+  for(NSString *key in [buildCounts allKeys]) {
+    [buildCounts setObject:[NSDecimalNumber zero] forKey:key];
   }
+
+  BuildStatusChecker *bsc = ((BuildStatusChecker*) notification.object);
+  for(Build *b in bsc.builds) {
+    NSDecimalNumber *count = [buildCounts objectForKey:b.status];
+    if(count == nil) {
+      count = [NSDecimalNumber zero];
+    }
+    [buildCounts setObject:[count decimalNumberByAdding:[NSDecimalNumber one]] forKey:b.status];
+  }
+
+  [self setNeedsDisplay:YES];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
   [[NSGraphicsContext currentContext] setShouldAntialias:YES];
-  // Draw status bar background, highlighted if menu is showing
-  [statusItem drawStatusBarBackgroundInRect:[self bounds]
-                              withHighlight:[self isMenuVisible]];
 
-  // Draw title string
-  NSPoint origin = NSMakePoint(StatusItemViewPaddingWidth,
-                               StatusItemViewPaddingHeight);
-  [[statusIcons objectForKey:@"ok"] drawAtPoint:origin fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
-  [self.title drawAtPoint:origin
-      withAttributes:[self titleAttributes]];
+  NSImage *icon;
+  int new_width = StatusItemViewPaddingWidth;
+
+  for(NSString *key in buildCounts) {
+    if((icon = [statusIcons objectForKey:key])) {
+      new_width += icon.size.width + StatusItemViewInternalPaddingWidth;
+      new_width += [self widthOfText:[NSString stringWithFormat:@"%@",[buildCounts objectForKey:key]]] + StatusItemViewPaddingWidth;
+    }
+  }
+  [statusItem setLength:new_width];
+
+  // Draw status bar background, highlighted if menu is showing
+  [statusItem drawStatusBarBackgroundInRect:[self bounds] withHighlight:[self isMenuVisible]];
+
+  NSPoint draw_cursor = NSMakePoint(StatusItemViewPaddingWidth, StatusItemViewPaddingHeight);
+  for(NSString *key in buildCounts) {
+    if((icon = [statusIcons objectForKey:key])) {
+      [icon drawAtPoint:draw_cursor fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+      draw_cursor.x += icon.size.width + StatusItemViewInternalPaddingWidth;
+
+      NSString *text = [NSString stringWithFormat:@"%@",[buildCounts objectForKey:key]];
+      [text drawAtPoint:draw_cursor withAttributes:[self textAttributes]];
+      draw_cursor.x += [self widthOfText:text] + StatusItemViewPaddingWidth;
+    }
+  }
 }
 
 - (void)mouseDown:(NSEvent *)event {
-  NSLog(@"got mousedown");
-
   if(panelWindow != nil && [panelWindow isVisible]) {
     panelWindow.isVisible = FALSE;
   } else {

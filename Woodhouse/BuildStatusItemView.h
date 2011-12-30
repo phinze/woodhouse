@@ -14,6 +14,7 @@
   NSDictionary *statusIcons;
   PanelController *panelController;
   NSWindow *panelWindow;
+  NSMutableDictionary *buildCounts;
 }
 
 @property (retain, nonatomic) NSStatusItem *statusItem;
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) NSMenu *statusMenu;
 
 #define StatusItemViewPaddingWidth  6
+#define StatusItemViewInternalPaddingWidth 3
 #define StatusItemViewPaddingHeight 3
 
 @end

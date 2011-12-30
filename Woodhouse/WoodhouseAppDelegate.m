@@ -23,12 +23,11 @@
   statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
   buildStatusChecker = [[BuildStatusChecker alloc] init];
 
-  BuildStatusItemView *buildStatusItemView = [[BuildStatusItemView alloc] init];
+  CGRect rect = CGRectMake(0, 0, 1, 1);
+  BuildStatusItemView *buildStatusItemView = [[BuildStatusItemView alloc] initWithFrame:rect];
   buildStatusItemView.statusItem = statusItem;
-  buildStatusItemView.buildStatusChecker = buildStatusChecker;
 
   [statusItem setView:buildStatusItemView];
-  [buildStatusItemView setTitle:@"HELLO WORLD"];
 }
 
 - (void) quit:(id)sender {
