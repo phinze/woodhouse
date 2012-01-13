@@ -18,12 +18,15 @@
 - (id)initWithWindowNibName:(NSString *)windowNibName {
   if (self = [super initWithWindowNibName:windowNibName]) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [buildTableView setSortDescriptors:[NSArray arrayWithObject:descriptor]];
   }
   return self;
 }
 
 -(void) buildsDidUpdate:(NSNotification*)notification {
-  self.builds = ((BuildStatusChecker*)notification.object).builds;
+  NSArray *temp = ((BuildStatusChecker*)notification.object).builds;
+  self.builds = [temp sortedArrayUsingDescriptors:[buildTableView sortDescriptors]];
   [buildTableView reloadData];
 }
 
@@ -38,6 +41,12 @@
   } else {
     return build.status;
   }
+}
+
+- (void) tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray *)oldDescriptors {
+  NSArray *current = [tableView sortDescriptors];
+  self.builds = [self.builds sortedArrayUsingDescriptors:current];
+  [buildTableView reloadData];
 }
 
 @end
