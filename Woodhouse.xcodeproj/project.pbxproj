@@ -405,6 +405,7 @@
 		A777CF8D1492957000FC97D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
@@ -416,6 +417,7 @@
 		A777CF8E1492957000FC97D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";

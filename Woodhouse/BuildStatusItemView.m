@@ -25,18 +25,18 @@
     if (self) {
       self.statusItem = nil;
       self.title = @"";
-      statusIcons = [[NSDictionary dictionaryWithObjectsAndKeys:
-        [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]] retain], @"Success",
-        [[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-error" ofType:@"png"]] retain], @"Failure",
+      statusIcons = [NSDictionary dictionaryWithObjectsAndKeys:
+        [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]], @"Success",
+        [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-error" ofType:@"png"]], @"Failure",
         nil
-      ] retain];
+      ];
 
       self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
       [statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
 
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
 
-      buildCounts = [[[NSMutableDictionary alloc] init] retain];
+      buildCounts = [[NSMutableDictionary alloc] init];
 
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
     }
@@ -45,12 +45,6 @@
 }
 
 
-- (void) dealloc {
-  [statusItem release];
-  [statusMenu release];
-  [title release];
-  [super dealloc];
-}
 
 
 - (BOOL) isMenuVisible {

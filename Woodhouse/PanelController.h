@@ -10,7 +10,7 @@
 
 @interface PanelController : NSWindowController <NSTableViewDataSource>
 
-@property (nonatomic, retain) IBOutlet NSTableView *buildTableView;
-@property (nonatomic, retain) NSArray *builds;
+@property (nonatomic, weak) IBOutlet NSTableView *buildTableView;
+@property (nonatomic, strong) NSArray *builds;
 
 @end

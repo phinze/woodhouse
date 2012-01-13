@@ -15,14 +15,11 @@
 
 @synthesize builds;
 
-- (void) dealloc {
-  [timer release];
-}
 
 - (void) updateBuilds:(NSTimer*)theTimer {
   NSLog(@"updating builds");
 
-  responseData = [[NSMutableData data] retain];
+  responseData = [NSMutableData data];
 
 //  [[NSUserDefaults standardUserDefaults] setObject:@"https://user:pass@server/cc.xml" forKey:@"Jenkins URL"];
 //  [[NSUserDefaults standardUserDefaults] synchronize];
@@ -31,12 +28,11 @@
 
 
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-  [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
+  [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void) scheduleNextCheck {
-  if(timer!=nil) [timer release];
-  timer = [[NSTimer timerWithTimeInterval:BUILD_UPDATE_DELAY target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO] retain];
+  timer = [NSTimer timerWithTimeInterval:BUILD_UPDATE_DELAY target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO];
   [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
@@ -81,8 +77,7 @@
     return;
   }
 
-  [builds release];
-  builds = [[[NSMutableArray alloc] init] retain];
+  builds = [[NSMutableArray alloc] init];
 
   for (NSXMLElement *node in newItemsNodes)
   {

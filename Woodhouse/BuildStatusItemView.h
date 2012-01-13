@@ -17,11 +17,11 @@
   NSMutableDictionary *buildCounts;
 }
 
-@property (retain, nonatomic) NSStatusItem *statusItem;
-@property (retain, nonatomic) BuildStatusChecker *buildStatusChecker;
-@property (retain, nonatomic) NSString *title;
+@property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) BuildStatusChecker *buildStatusChecker;
+@property (strong, nonatomic) NSString *title;
 
-@property (nonatomic, retain) NSMenu *statusMenu;
+@property (nonatomic, strong) NSMenu *statusMenu;
 
 #define StatusItemViewPaddingWidth  6
 #define StatusItemViewInternalPaddingWidth 3

@@ -13,14 +13,11 @@
 @implementation WoodhouseAppDelegate
 
 
-- (void) dealloc {
-  [statusItem release];
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 
-  statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
   buildStatusChecker = [[BuildStatusChecker alloc] init];
 
   CGRect rect = CGRectMake(0, 0, 1, 1);

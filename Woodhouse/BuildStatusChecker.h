@@ -11,9 +11,8 @@
 @interface BuildStatusChecker : NSObject <NSURLConnectionDelegate> {
   NSTimer *timer;
   NSMutableData *responseData;
-  NSMutableArray *builds;
 }
 
-@property(readonly) NSMutableArray *builds;
+@property(strong, readonly) NSMutableArray *builds;
 
 @end
