@@ -18,10 +18,23 @@
 - (id)initWithWindowNibName:(NSString *)windowNibName {
   if (self = [super initWithWindowNibName:windowNibName]) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    [buildTableView setSortDescriptors:[NSArray arrayWithObject:descriptor]];
   }
   return self;
+}
+
+-(void) windowDidLoad {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *lastSortKey = [defaults objectForKey:@"last_sort_key"];
+
+  NSSortDescriptor *descriptor;
+  if(lastSortKey) {
+    NSNumber *lastSortAscending = [defaults objectForKey:@"last_sort_ascending"];
+    descriptor = [NSSortDescriptor sortDescriptorWithKey:lastSortKey ascending:[lastSortAscending boolValue]];
+  } else {
+    descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+  }
+  [buildTableView setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+
 }
 
 -(void) buildsDidUpdate:(NSNotification*)notification {
@@ -47,6 +60,14 @@
   NSArray *current = [tableView sortDescriptors];
   self.builds = [self.builds sortedArrayUsingDescriptors:current];
   [buildTableView reloadData];
+
+  if([current count] > 0) {
+    NSSortDescriptor *descriptor = [current objectAtIndex:0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[descriptor key] forKey:@"last_sort_key"];
+    [defaults setObject:[NSNumber numberWithBool:[descriptor ascending]] forKey:@"last_sort_ascending"];
+    [defaults synchronize];
+  }
 }
 
 @end
