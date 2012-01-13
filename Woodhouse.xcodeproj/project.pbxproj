@@ -22,6 +22,7 @@
 		A7ADD8281492B4CC009B621E /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ADD8271492B4CC009B621E /* Panel.xib */; };
 		A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ADD82B1492B5BA009B621E /* PanelController.m */; };
 		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
+		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FE7A0D1493121000A02CFE /* watchdog-ok.png */; };
 		D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */; };
@@ -63,6 +64,7 @@
 		A7ADD82B1492B5BA009B621E /* PanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
 		A7C8930E1492CB4600A06695 /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
 		A7C8930F1492CB4600A06695 /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
+		A7F9925014C0EB3800008A49 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D059F1461493D90800E89E4C /* BuildStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusItemView.h; sourceTree = "<group>"; };
 		D059F1471493D90800E89E4C /* BuildStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusItemView.m; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		A777CF641492956F00FC97D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7F9925014C0EB3800008A49 /* icon.icns */,
 				D0FE7A0D1493121000A02CFE /* watchdog-ok.png */,
 				A7AC3ED914AE634000887520 /* watchdog-error.png */,
 				A777CF651492956F00FC97D3 /* Woodhouse-Info.plist */,
@@ -259,6 +262,7 @@
 				A7ADD8281492B4CC009B621E /* Panel.xib in Resources */,
 				D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */,
 				A7AC3EDA14AE634000887520 /* watchdog-error.png in Resources */,
+				A7F9925114C0EB3800008A49 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

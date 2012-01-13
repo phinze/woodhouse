@@ -3,7 +3,7 @@
 //  Woodhouse
 //
 //  Created by Paul Hinze on 12/9/11.
-//  Copyright (c) 2011 Braintree. All rights reserved.
+//  Copyright (c) 2012 Braintree. All rights reserved.
 //
 
 #import "BuildStatusChecker.h"
