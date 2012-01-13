@@ -131,11 +131,12 @@
     panelWindow.isVisible = FALSE;
   } else {
     panelWindow = [panelController window];
-    NSRect panelRect = [panelWindow frame];
-    NSRect screenRect = [[panelWindow screen] frame];
+    NSRect panelRect = panelWindow.frame;
+    NSRect screenRect = [self.window convertRectToScreen:self.frame];
 
-    panelRect.origin.y = screenRect.origin.y + screenRect.size.height - 30 - panelRect.size.height;
-    panelRect.origin.x = screenRect.origin.x + screenRect.size.width - 30 - panelRect.size.width;
+    panelRect.origin.x = NSMidX(screenRect) - panelRect.size.width/2;
+    panelRect.origin.y = NSMinY(screenRect) - panelRect.size.height;
+
     [panelWindow setFrame:panelRect display:YES];
     [panelWindow setLevel:NSFloatingWindowLevel];
     [panelWindow makeKeyAndOrderFront:nil];
