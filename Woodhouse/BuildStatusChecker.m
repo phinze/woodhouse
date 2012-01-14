@@ -28,7 +28,7 @@
 
 
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-  [[NSURLConnection alloc] initWithRequest:request delegate:self];
+  (void) [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void) scheduleNextCheck {
