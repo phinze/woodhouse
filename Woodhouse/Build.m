@@ -10,14 +10,14 @@
 
 @implementation Build
 
-@synthesize name, status;
+@synthesize name, status, url;
 
-- (id)initWithName:(NSString*)aName andStatus:(NSString*)aStatus
-{
+- (id)initFromNode:(NSXMLElement *)node {
     self = [super init];
     if (self) {
-      name = aName;
-      status = aStatus;
+      name = [[node attributeForName:@"name"] stringValue];
+      status = [[node attributeForName:@"lastBuildStatus"] stringValue];
+      url = [NSURL URLWithString: [[node attributeForName:@"webUrl"] stringValue]];
     }
 
     return self;

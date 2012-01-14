@@ -34,7 +34,13 @@
     descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
   }
   [buildTableView setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+  [buildTableView setTarget:self];
+  [buildTableView setDoubleAction:@selector(openBuildURL:)];
+}
 
+-(IBAction)openBuildURL:(id)sender {
+  NSInteger row = [buildTableView clickedRow];
+  (void) [[NSWorkspace sharedWorkspace] openURL: [[builds objectAtIndex:row] url]];
 }
 
 -(void) buildsDidUpdate:(NSNotification*)notification {

@@ -12,7 +12,9 @@
 
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *status;
+@property (nonatomic, copy, readonly) NSURL *url;
 
-- (id)initWithName:(NSString*)name andStatus:(NSString*)status;
+
+- (id)initFromNode:(NSXMLElement *)node;
 
 @end

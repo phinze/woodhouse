@@ -62,7 +62,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-//  NSString *str =  [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+//  NSString *str =  [[NSString alloc] initWithData:;responseData encoding:NSUTF8StringEncoding];
 //  NSLog(@"Got results: %@", str);
 
   NSError *error;
@@ -81,10 +81,7 @@
 
   for (NSXMLElement *node in newItemsNodes)
   {
-    NSString *name = [[node attributeForName:@"name"] stringValue];
-    NSString *status = [[node attributeForName:@"lastBuildStatus"] stringValue];
-//    NSLog(@"%@ %@", name, status);
-    [builds addObject:[[Build alloc] initWithName:name andStatus:status]];
+    [builds addObject:[[Build alloc] initFromNode:node]];
   }
 
   [[NSNotificationCenter defaultCenter] postNotificationName:@"WoodhouseBuildsUpdated" object:self];
