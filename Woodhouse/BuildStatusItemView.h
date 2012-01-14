@@ -27,4 +27,6 @@
 #define StatusItemViewInternalPaddingWidth 3
 #define StatusItemViewPaddingHeight 3
 
+-(void)deactivate;
+
 @end

@@ -12,8 +12,6 @@
 
 @implementation WoodhouseAppDelegate
 
-
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 
@@ -21,10 +19,14 @@
   buildStatusChecker = [[BuildStatusChecker alloc] init];
 
   CGRect rect = CGRectMake(0, 0, 1, 1);
-  BuildStatusItemView *buildStatusItemView = [[BuildStatusItemView alloc] initWithFrame:rect];
+  buildStatusItemView = [[BuildStatusItemView alloc] initWithFrame:rect];
   buildStatusItemView.statusItem = statusItem;
 
   [statusItem setView:buildStatusItemView];
+}
+
+- (void)applicationWillResignActive:(NSNotification *)aNotification {
+  [buildStatusItemView deactivate];
 }
 
 - (void) quit:(id)sender {

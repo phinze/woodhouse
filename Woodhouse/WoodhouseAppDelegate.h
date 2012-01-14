@@ -9,12 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import "PanelController.h"
 #import "BuildStatusChecker.h"
+@class BuildStatusItemView;
 
 @interface WoodhouseAppDelegate : NSObject <NSApplicationDelegate> {
   NSStatusItem *statusItem;
   BuildStatusChecker *buildStatusChecker;
+  BuildStatusItemView *buildStatusItemView;
 }
-
-
 
 @end

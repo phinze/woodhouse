@@ -35,7 +35,6 @@
       [statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
 
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
-
       buildCounts = [[NSMutableDictionary alloc] init];
 
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
@@ -44,15 +43,17 @@
     return self;
 }
 
-
-
-
-- (BOOL) isMenuVisible {
+- (BOOL) isPanelVisible {
   return panelWindow != nil && [panelWindow isVisible];
 }
 
+- (void)deactivate {
+  panelWindow.isVisible = FALSE;
+  [self setNeedsDisplay:YES];
+}
+
 - (NSColor *)titleForegroundColor {
-  if ([self isMenuVisible]) {
+  if ([self isPanelVisible]) {
     return [NSColor whiteColor];
   }
   else {
@@ -111,7 +112,7 @@
   [statusItem setLength:new_width];
 
   // Draw status bar background, highlighted if menu is showing
-  [statusItem drawStatusBarBackgroundInRect:[self bounds] withHighlight:[self isMenuVisible]];
+  [statusItem drawStatusBarBackgroundInRect:[self bounds] withHighlight:[self isPanelVisible]];
 
   NSPoint draw_cursor = NSMakePoint(StatusItemViewPaddingWidth, StatusItemViewPaddingHeight);
   for(NSString *key in buildCounts) {
@@ -128,7 +129,7 @@
 
 - (void)mouseDown:(NSEvent *)event {
   if(panelWindow != nil && [panelWindow isVisible]) {
-    panelWindow.isVisible = FALSE;
+    [self deactivate];
   } else {
     panelWindow = [panelController window];
     NSRect panelRect = panelWindow.frame;
@@ -139,7 +140,9 @@
 
     [panelWindow setFrame:panelRect display:YES];
     [panelWindow setLevel:NSFloatingWindowLevel];
-    [panelWindow makeKeyAndOrderFront:nil];
+    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES]; /* need to "activate" app on every show otherwise
+                                                                        * blur-hiding will not work after the first time */
+    [panelWindow makeKeyAndOrderFront:self];
   }
   [self setNeedsDisplay:YES];
 }
