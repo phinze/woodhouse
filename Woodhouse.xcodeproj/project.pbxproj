@@ -24,6 +24,10 @@
 		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
 		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
+		D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
+		D062FF9514C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = D062FF9414C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict */; };
+		D062FF9814C4C19600CD1E67 /* BuildStatusNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */; };
+		D062FF9A14C7975400CD1E67 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
 		D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FE7A0D1493121000A02CFE /* watchdog-ok.png */; };
 		D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */; };
 /* End PBXBuildFile section */
@@ -37,6 +41,19 @@
 			remoteInfo = Woodhouse;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D062FF9914C7974A00CD1E67 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D062FF9A14C7975400CD1E67 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A777CF591492956F00FC97D3 /* Woodhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woodhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +84,10 @@
 		A7F9925014C0EB3800008A49 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D059F1461493D90800E89E4C /* BuildStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusItemView.h; sourceTree = "<group>"; };
 		D059F1471493D90800E89E4C /* BuildStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusItemView.m; sourceTree = "<group>"; };
+		D062FF9014C4BC8700CD1E67 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		D062FF9414C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		D062FF9614C4C19600CD1E67 /* BuildStatusNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusNotifier.h; sourceTree = "<group>"; };
+		D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusNotifier.m; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
 		D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusChecker.h; sourceTree = "<group>"; };
 		D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusChecker.m; sourceTree = "<group>"; };
@@ -78,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A777CF5E1492956F00FC97D3 /* Cocoa.framework in Frameworks */,
+				D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +137,7 @@
 		A777CF5C1492956F00FC97D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D062FF9014C4BC8700CD1E67 /* Growl.framework */,
 				A777CF5D1492956F00FC97D3 /* Cocoa.framework */,
 				A777CF7B1492956F00FC97D3 /* SenTestingKit.framework */,
 				A777CF5F1492956F00FC97D3 /* Other Frameworks */,
@@ -139,6 +162,8 @@
 				A7C8930F1492CB4600A06695 /* Build.m */,
 				D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */,
 				D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */,
+				D062FF9614C4C19600CD1E67 /* BuildStatusNotifier.h */,
+				D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */,
 				D059F1461493D90800E89E4C /* BuildStatusItemView.h */,
 				D059F1471493D90800E89E4C /* BuildStatusItemView.m */,
 				A7ADD82A1492B5BA009B621E /* PanelController.h */,
@@ -163,6 +188,7 @@
 				A777CF691492956F00FC97D3 /* main.m */,
 				A777CF6B1492956F00FC97D3 /* Woodhouse-Prefix.pch */,
 				A777CF6C1492956F00FC97D3 /* Credits.rtf */,
+				D062FF9414C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -196,6 +222,7 @@
 				A777CF551492956F00FC97D3 /* Sources */,
 				A777CF561492956F00FC97D3 /* Frameworks */,
 				A777CF571492956F00FC97D3 /* Resources */,
+				D062FF9914C7974A00CD1E67 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -263,6 +290,7 @@
 				D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */,
 				A7AC3EDA14AE634000887520 /* watchdog-error.png in Resources */,
 				A7F9925114C0EB3800008A49 /* icon.icns in Resources */,
+				D062FF9514C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +332,7 @@
 				A7C893101492CB4600A06695 /* Build.m in Sources */,
 				D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */,
 				D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */,
+				D062FF9814C4C19600CD1E67 /* BuildStatusNotifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +439,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
@@ -422,6 +455,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";

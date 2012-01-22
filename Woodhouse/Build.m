@@ -8,6 +8,10 @@
 
 #import "Build.h"
 
+NSString * const BuildStatusFailure = @"Failure";
+NSString * const BuildStatusSuccess = @"Success";
+NSString * const BuildStatusUnknown = @"Unknown";
+
 @implementation Build
 
 @synthesize name, status, url;
@@ -21,6 +25,30 @@
     }
 
     return self;
+}
+
+- (BOOL)isFailure {
+  return [[self status] isEqualToString: BuildStatusFailure];
+}
+
+- (BOOL)isSuccess {
+  return [[self status] isEqualToString: BuildStatusSuccess];
+}
+
+- (BOOL)isUnknown {
+  return [[self status] isEqualToString: BuildStatusUnknown];
+}
+
+- (BOOL)isPresent {
+  return YES;
+}
+
+- (BOOL)isEqual:(id)object {
+  return [[self name] isEqualToString:[(Build *)object name]];
+}
+
+- (NSUInteger)hash {
+  return [[self name] hash];
 }
 
 @end

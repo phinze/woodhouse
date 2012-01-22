@@ -9,6 +9,7 @@
 #import "WoodhouseAppDelegate.h"
 #import "Build.h"
 #import "BuildStatusItemView.h"
+#import "BuildStatusNotifier.h"
 
 @implementation WoodhouseAppDelegate
 
@@ -21,6 +22,8 @@
   CGRect rect = CGRectMake(0, 0, 1, 1);
   buildStatusItemView = [[BuildStatusItemView alloc] initWithFrame:rect];
   buildStatusItemView.statusItem = statusItem;
+
+  buildStatusNotifier = [[BuildStatusNotifier alloc] init];
 
   [statusItem setView:buildStatusItemView];
 }
