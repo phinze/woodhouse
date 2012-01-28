@@ -25,7 +25,6 @@
 		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
-		D062FF9514C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = D062FF9414C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict */; };
 		D062FF9814C4C19600CD1E67 /* BuildStatusNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */; };
 		D062FF9A14C7975400CD1E67 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
 		D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FE7A0D1493121000A02CFE /* watchdog-ok.png */; };
@@ -85,9 +84,9 @@
 		D059F1461493D90800E89E4C /* BuildStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusItemView.h; sourceTree = "<group>"; };
 		D059F1471493D90800E89E4C /* BuildStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusItemView.m; sourceTree = "<group>"; };
 		D062FF9014C4BC8700CD1E67 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		D062FF9414C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		D062FF9614C4C19600CD1E67 /* BuildStatusNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusNotifier.h; sourceTree = "<group>"; };
 		D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusNotifier.m; sourceTree = "<group>"; };
+		D0A7681914D4A06200F96594 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
 		D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusChecker.h; sourceTree = "<group>"; };
 		D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusChecker.m; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 				D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */,
 				D059F1461493D90800E89E4C /* BuildStatusItemView.h */,
 				D059F1471493D90800E89E4C /* BuildStatusItemView.m */,
+				D0A7681914D4A06200F96594 /* Notifications.h */,
 				A7ADD82A1492B5BA009B621E /* PanelController.h */,
 				A7ADD82B1492B5BA009B621E /* PanelController.m */,
 				A777CF6F1492956F00FC97D3 /* WoodhouseAppDelegate.h */,
@@ -188,7 +188,6 @@
 				A777CF691492956F00FC97D3 /* main.m */,
 				A777CF6B1492956F00FC97D3 /* Woodhouse-Prefix.pch */,
 				A777CF6C1492956F00FC97D3 /* Credits.rtf */,
-				D062FF9414C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -290,7 +289,6 @@
 				D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */,
 				A7AC3EDA14AE634000887520 /* watchdog-error.png in Resources */,
 				A7F9925114C0EB3800008A49 /* icon.icns in Resources */,
-				D062FF9514C4BF6A00CD1E67 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

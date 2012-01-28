@@ -8,8 +8,9 @@
 
 #import "BuildStatusChecker.h"
 #import "Build.h"
+#import "Notifications.h"
 
-#define BUILD_UPDATE_DELAY_SECONDS 15.0
+#define BUILD_UPDATE_DELAY_SECONDS 90.0
 
 @interface BuildStatusChecker ()
 - (Build *)buildFromPreviousRun:(Build *)currentBuild;
@@ -17,6 +18,7 @@
 - (void)updateBuilds:(NSTimer*)theTimer;
 - (void)scheduleNextCheck;
 - (NSError *)parseResponseData;
+- (void)notifyOfError:(NSError*)error;
 @end
 
 @implementation BuildStatusChecker
@@ -111,7 +113,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-  [[NSAlert alertWithError:error] runModal];
+  [self notifyOfError:error];
   [self scheduleNextCheck];
 }
 
@@ -119,10 +121,10 @@
 {
   NSError *parsingError = [self parseResponseData];
   if (parsingError) {
-    [[NSAlert alertWithError:parsingError] runModal];
+    [self notifyOfError:parsingError];
   } else {
     runCount++;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"WoodhouseBuildsUpdated" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BUILDS_UPDATED object:self];
   }
   [self scheduleNextCheck];
 }
@@ -143,6 +145,10 @@
     [builds addObject:[[Build alloc] initFromNode:node]];
   }
   return nil;
+}
+
+- (void)notifyOfError:(NSError *)error {
+  [[NSNotificationCenter defaultCenter] postNotificationName:BUILDS_FAILED_TO_UPDATE object:error];
 }
 
 @end

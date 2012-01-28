@@ -12,5 +12,8 @@
 @interface BuildStatusNotifier : NSObject <GrowlApplicationBridgeDelegate>
 
 -(id)init;
+- (NSDictionary *) registrationDictionaryForGrowl;
+- (NSString *) applicationNameForGrowl;
+
 
 @end
