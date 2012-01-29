@@ -72,7 +72,7 @@
 											<string key="NSFrameSize">{438, 212}</string>
 											<reference key="NSSuperview" ref="512445708"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="724276457"/>
+											<reference key="NSNextKeyView" ref="553568387"/>
 											<string key="NSReuseIdentifierKey">_NS:1197</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="193587279">
@@ -250,7 +250,6 @@
 									<string key="NSFrame">{{1, 214}, {438, 15}}</string>
 									<reference key="NSSuperview" ref="386429089"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:1216</string>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="386429089"/>
@@ -278,7 +277,7 @@
 							<string key="NSFrame">{{20, 20}, {440, 230}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="553568387"/>
+							<reference key="NSNextKeyView" ref="512445708"/>
 							<string key="NSReuseIdentifierKey">_NS:1193</string>
 							<int key="NSsFlags">133682</int>
 							<reference key="NSVScroller" ref="724276457"/>
@@ -469,7 +468,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{357, 418}, {480, 270}}</string>
-					<boolean value="YES"/>
+					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -502,6 +501,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PanelController</string>
 					<string key="superclassName">NSWindowController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">openBuildURL:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">openBuildURL:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">openBuildURL:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">buildTableView</string>
 						<string key="NS.object.0">NSTableView</string>
