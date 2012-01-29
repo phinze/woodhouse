@@ -16,17 +16,19 @@
 		A777CF7C1492956F00FC97D3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A777CF7B1492956F00FC97D3 /* SenTestingKit.framework */; };
 		A777CF7D1492956F00FC97D3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A777CF5D1492956F00FC97D3 /* Cocoa.framework */; };
 		A777CF851492956F00FC97D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A777CF831492956F00FC97D3 /* InfoPlist.strings */; };
-		A777CF871492956F00FC97D3 /* WoodhouseTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A777CF861492956F00FC97D3 /* WoodhouseTests.h */; };
-		A777CF891492957000FC97D3 /* WoodhouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A777CF881492957000FC97D3 /* WoodhouseTests.m */; };
 		A7AC3EDA14AE634000887520 /* watchdog-error.png in Resources */ = {isa = PBXBuildFile; fileRef = A7AC3ED914AE634000887520 /* watchdog-error.png */; };
 		A7ADD8281492B4CC009B621E /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7ADD8271492B4CC009B621E /* Panel.xib */; };
 		A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ADD82B1492B5BA009B621E /* PanelController.m */; };
 		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
 		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
+		D058198314CD17A0003C36E2 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D058197B14CD17A0003C36E2 /* libOCMock.a */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
 		D062FF9814C4C19600CD1E67 /* BuildStatusNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */; };
 		D062FF9A14C7975400CD1E67 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
+		D062FFA014CCFD0500CD1E67 /* BuildStatusCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */; };
+		D062FFA814CD03D600CD1E67 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
+		D0A2F34614D4C41600908DEF /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F34514D4C41600908DEF /* TestHelper.m */; };
 		D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FE7A0D1493121000A02CFE /* watchdog-ok.png */; };
 		D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D062FFA714CD03D200CD1E67 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D062FFA814CD03D600CD1E67 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -72,8 +84,6 @@
 		A777CF7B1492956F00FC97D3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A777CF821492956F00FC97D3 /* WoodhouseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WoodhouseTests-Info.plist"; sourceTree = "<group>"; };
 		A777CF841492956F00FC97D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A777CF861492956F00FC97D3 /* WoodhouseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WoodhouseTests.h; sourceTree = "<group>"; };
-		A777CF881492957000FC97D3 /* WoodhouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WoodhouseTests.m; sourceTree = "<group>"; };
 		A7AC3ED914AE634000887520 /* watchdog-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-error.png"; sourceTree = "<group>"; };
 		A7ADD8271492B4CC009B621E /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
 		A7ADD82A1492B5BA009B621E /* PanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
@@ -81,11 +91,22 @@
 		A7C8930E1492CB4600A06695 /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
 		A7C8930F1492CB4600A06695 /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
 		A7F9925014C0EB3800008A49 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D058197B14CD17A0003C36E2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		D058197D14CD17A0003C36E2 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		D058197E14CD17A0003C36E2 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		D058197F14CD17A0003C36E2 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		D058198014CD17A0003C36E2 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		D058198114CD17A0003C36E2 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		D058198214CD17A0003C36E2 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		D059F1461493D90800E89E4C /* BuildStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusItemView.h; sourceTree = "<group>"; };
 		D059F1471493D90800E89E4C /* BuildStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusItemView.m; sourceTree = "<group>"; };
 		D062FF9014C4BC8700CD1E67 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		D062FF9614C4C19600CD1E67 /* BuildStatusNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusNotifier.h; sourceTree = "<group>"; };
 		D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusNotifier.m; sourceTree = "<group>"; };
+		D062FF9E14CCFD0400CD1E67 /* BuildStatusCheckerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildStatusCheckerTests.h; path = ../Woodhouse/Tests/BuildStatusCheckerTests.h; sourceTree = "<group>"; };
+		D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuildStatusCheckerTests.m; path = ../Woodhouse/Tests/BuildStatusCheckerTests.m; sourceTree = "<group>"; };
+		D0A2F34414D4C41600908DEF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		D0A2F34514D4C41600908DEF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		D0A7681914D4A06200F96594 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
 		D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusChecker.h; sourceTree = "<group>"; };
@@ -108,6 +129,7 @@
 			files = (
 				A777CF7C1492956F00FC97D3 /* SenTestingKit.framework in Frameworks */,
 				A777CF7D1492956F00FC97D3 /* Cocoa.framework in Frameworks */,
+				D058198314CD17A0003C36E2 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,8 +217,11 @@
 		A777CF801492956F00FC97D3 /* WoodhouseTests */ = {
 			isa = PBXGroup;
 			children = (
-				A777CF861492956F00FC97D3 /* WoodhouseTests.h */,
-				A777CF881492957000FC97D3 /* WoodhouseTests.m */,
+				D058197A14CD17A0003C36E2 /* TestLibraries */,
+				D062FF9E14CCFD0400CD1E67 /* BuildStatusCheckerTests.h */,
+				D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */,
+				D0A2F34414D4C41600908DEF /* TestHelper.h */,
+				D0A2F34514D4C41600908DEF /* TestHelper.m */,
 				A777CF811492956F00FC97D3 /* Supporting Files */,
 			);
 			path = WoodhouseTests;
@@ -209,6 +234,28 @@
 				A777CF831492956F00FC97D3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D058197A14CD17A0003C36E2 /* TestLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D058197B14CD17A0003C36E2 /* libOCMock.a */,
+				D058197C14CD17A0003C36E2 /* OCMock */,
+			);
+			path = TestLibraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		D058197C14CD17A0003C36E2 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				D058197D14CD17A0003C36E2 /* NSNotificationCenter+OCMAdditions.h */,
+				D058197E14CD17A0003C36E2 /* OCMArg.h */,
+				D058197F14CD17A0003C36E2 /* OCMConstraint.h */,
+				D058198014CD17A0003C36E2 /* OCMock.h */,
+				D058198114CD17A0003C36E2 /* OCMockObject.h */,
+				D058198214CD17A0003C36E2 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +286,7 @@
 				A777CF751492956F00FC97D3 /* Sources */,
 				A777CF761492956F00FC97D3 /* Frameworks */,
 				A777CF771492956F00FC97D3 /* Resources */,
+				D062FFA714CD03D200CD1E67 /* CopyFiles */,
 				A777CF781492956F00FC97D3 /* ShellScript */,
 			);
 			buildRules = (
@@ -297,7 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A777CF851492956F00FC97D3 /* InfoPlist.strings in Resources */,
-				A777CF871492956F00FC97D3 /* WoodhouseTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A777CF891492957000FC97D3 /* WoodhouseTests.m in Sources */,
+				D062FFA014CCFD0500CD1E67 /* BuildStatusCheckerTests.m in Sources */,
+				D0A2F34614D4C41600908DEF /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +471,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -459,6 +508,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -469,10 +519,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Woodhouse.app/Contents/MacOS/Woodhouse";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/TestLibraries\"";
 				INFOPLIST_FILE = "WoodhouseTests/WoodhouseTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestLibraries\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -483,10 +545,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Woodhouse.app/Contents/MacOS/Woodhouse";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/TestLibraries\"";
 				INFOPLIST_FILE = "WoodhouseTests/WoodhouseTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestLibraries\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

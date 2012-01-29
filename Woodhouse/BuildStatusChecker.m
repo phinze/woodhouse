@@ -19,6 +19,7 @@
 - (void)scheduleNextCheck;
 - (NSError *)parseResponseData;
 - (void)notifyOfError:(NSError*)error;
+- (void) makeRequest:(NSString*)url;
 @end
 
 @implementation BuildStatusChecker
@@ -38,15 +39,16 @@
 }
 
 - (void)updateBuilds:(NSTimer*)theTimer {
-  NSLog(@"updating builds");
-
   responseData = [NSMutableData data];
 
 //  [[NSUserDefaults standardUserDefaults] setObject:@"https://user:pass@server/cc.xml" forKey:@"Jenkins URL"];
 //  [[NSUserDefaults standardUserDefaults] synchronize];
 
   NSString *url = [[NSUserDefaults standardUserDefaults] objectForKey:@"Jenkins URL"];
+  [self makeRequest:url];
+}
 
+- (void) makeRequest:(NSString*)url {
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
   (void) [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
