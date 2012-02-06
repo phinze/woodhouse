@@ -43,7 +43,6 @@
 }
 
 - (void)updateBuilds:(NSTimer*)theTimer {
-  NSLog(@"updating builds");
   [timer invalidate];
   responseData = [NSMutableData data];
 
