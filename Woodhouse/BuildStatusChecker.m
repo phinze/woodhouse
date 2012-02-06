@@ -9,8 +9,9 @@
 #import "BuildStatusChecker.h"
 #import "Build.h"
 #import "Notifications.h"
+#import "WoodhouseKeychain.h"
 
-#define BUILD_UPDATE_DELAY_SECONDS 90.0
+#define DEFAULT_BUILD_UPDATE_DELAY_SECONDS 90.0
 
 @interface BuildStatusChecker ()
 - (Build *)buildFromPreviousRun:(Build *)currentBuild;
@@ -19,7 +20,9 @@
 - (void)scheduleNextCheck;
 - (NSError *)parseResponseData;
 - (void)notifyOfError:(NSError*)error;
-- (void) makeRequest:(NSString*)url;
+- (void)makeRequest:(NSString*)url;
+- (double)buildDelaySeconds;
+- (void)watchForImmediateUpdateRequest;
 @end
 
 @implementation BuildStatusChecker
@@ -29,6 +32,7 @@
 - (id)init {
   if (self = [super init]){
     [self updateBuilds:nil];
+    [self watchForImmediateUpdateRequest];
     runCount = 0;
   }
   return self;
@@ -39,10 +43,9 @@
 }
 
 - (void)updateBuilds:(NSTimer*)theTimer {
+  NSLog(@"updating builds");
+  [timer invalidate];
   responseData = [NSMutableData data];
-
-//  [[NSUserDefaults standardUserDefaults] setObject:@"https://user:pass@server/cc.xml" forKey:@"Jenkins URL"];
-//  [[NSUserDefaults standardUserDefaults] synchronize];
 
   NSString *url = [[NSUserDefaults standardUserDefaults] objectForKey:@"Jenkins URL"];
   [self makeRequest:url];
@@ -54,12 +57,17 @@
 }
 
 - (void) scheduleNextCheck {
-  timer = [NSTimer timerWithTimeInterval:BUILD_UPDATE_DELAY_SECONDS
+  timer = [NSTimer timerWithTimeInterval:[self buildDelaySeconds]
                                   target:self
                                 selector:@selector(updateBuilds:)
                                 userInfo:nil
                                  repeats:NO];
   [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (double) buildDelaySeconds {
+  NSString *delayFromPreferences = [[NSUserDefaults standardUserDefaults] objectForKey:@"Build Update Delay"];
+  return (delayFromPreferences == @"") ? DEFAULT_BUILD_UPDATE_DELAY_SECONDS : [delayFromPreferences floatValue];
 }
 
 # pragma mark build diff methods
@@ -100,9 +108,25 @@
   return nil;
 }
 
-
 #pragma mark connection delegate methods
 
+-(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+  if ([challenge previousFailureCount] == 0) {
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"Jenkins Username"];
+    NSString *password = [[WoodhouseKeychain sharedKeychain] getKeychainPasswordForUsername:nil];
+    NSURLCredential *newCredential;
+    newCredential = [NSURLCredential credentialWithUser:username
+                                               password:password
+                                            persistence:NSURLCredentialPersistenceNone];
+    [[challenge sender] useCredential:newCredential
+           forAuthenticationChallenge:challenge];
+  } else {
+    [[challenge sender] cancelAuthenticationChallenge:challenge];
+    NSDictionary *errorDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"Check your username and password in the preferences.", NSLocalizedDescriptionKey, nil];
+    [self notifyOfError:[NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorUserAuthenticationRequired userInfo:errorDict]];
+  }
+}
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
   [responseData setLength:0];
@@ -115,7 +139,9 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-  [self notifyOfError:error];
+  if (![error code] == NSURLErrorUserCancelledAuthentication) {
+    [self notifyOfError:error];
+  }
   [self scheduleNextCheck];
 }
 
@@ -151,6 +177,10 @@
 
 - (void)notifyOfError:(NSError *)error {
   [[NSNotificationCenter defaultCenter] postNotificationName:BUILDS_FAILED_TO_UPDATE object:error];
+}
+
+- (void) watchForImmediateUpdateRequest {
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateBuilds:) name:CHECK_BUILDS_NOW object:nil];
 }
 
 @end

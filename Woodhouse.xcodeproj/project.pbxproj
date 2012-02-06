@@ -21,6 +21,8 @@
 		A7ADD82C1492B5BA009B621E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7ADD82B1492B5BA009B621E /* PanelController.m */; };
 		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
 		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
+		D010F6B714DA4468006116D1 /* WoodhouseKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */; };
+		D01EA6C014D78F2B00989092 /* WoodhouseKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EA6BF14D78F2B00989092 /* WoodhouseKeychain.m */; };
 		D058198314CD17A0003C36E2 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D058197B14CD17A0003C36E2 /* libOCMock.a */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
@@ -29,6 +31,10 @@
 		D062FFA014CCFD0500CD1E67 /* BuildStatusCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */; };
 		D062FFA814CD03D600CD1E67 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
 		D0A2F34614D4C41600908DEF /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F34514D4C41600908DEF /* TestHelper.m */; };
+		D0A2F35014D601B800908DEF /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A2F34F14D601B800908DEF /* Preferences.xib */; };
+		D0A2F35314D602E900908DEF /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F35214D602E900908DEF /* PreferencesController.m */; };
+		D0A2F35914D60EC600908DEF /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A2F34F14D601B800908DEF /* Preferences.xib */; };
+		D0A2F36214D71FD100908DEF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A2F36114D71FD000908DEF /* Security.framework */; };
 		D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FE7A0D1493121000A02CFE /* watchdog-ok.png */; };
 		D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FE7A10149313D800A02CFE /* BuildStatusChecker.m */; };
 /* End PBXBuildFile section */
@@ -91,6 +97,9 @@
 		A7C8930E1492CB4600A06695 /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
 		A7C8930F1492CB4600A06695 /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
 		A7F9925014C0EB3800008A49 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychainTests.m; sourceTree = "<group>"; };
+		D01EA6BE14D78F2B00989092 /* WoodhouseKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoodhouseKeychain.h; sourceTree = SOURCE_ROOT; };
+		D01EA6BF14D78F2B00989092 /* WoodhouseKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychain.m; sourceTree = SOURCE_ROOT; };
 		D058197B14CD17A0003C36E2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		D058197D14CD17A0003C36E2 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		D058197E14CD17A0003C36E2 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -107,6 +116,10 @@
 		D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuildStatusCheckerTests.m; path = ../Woodhouse/Tests/BuildStatusCheckerTests.m; sourceTree = "<group>"; };
 		D0A2F34414D4C41600908DEF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		D0A2F34514D4C41600908DEF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		D0A2F34F14D601B800908DEF /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		D0A2F35114D602E900908DEF /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		D0A2F35214D602E900908DEF /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
+		D0A2F36114D71FD000908DEF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D0A7681914D4A06200F96594 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
 		D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusChecker.h; sourceTree = "<group>"; };
@@ -118,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A2F36214D71FD100908DEF /* Security.framework in Frameworks */,
 				A777CF5E1492956F00FC97D3 /* Cocoa.framework in Frameworks */,
 				D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */,
 			);
@@ -158,6 +172,7 @@
 		A777CF5C1492956F00FC97D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0A2F36114D71FD000908DEF /* Security.framework */,
 				D062FF9014C4BC8700CD1E67 /* Growl.framework */,
 				A777CF5D1492956F00FC97D3 /* Cocoa.framework */,
 				A777CF7B1492956F00FC97D3 /* SenTestingKit.framework */,
@@ -190,10 +205,15 @@
 				D0A7681914D4A06200F96594 /* Notifications.h */,
 				A7ADD82A1492B5BA009B621E /* PanelController.h */,
 				A7ADD82B1492B5BA009B621E /* PanelController.m */,
+				D0A2F35114D602E900908DEF /* PreferencesController.h */,
+				D0A2F35214D602E900908DEF /* PreferencesController.m */,
 				A777CF6F1492956F00FC97D3 /* WoodhouseAppDelegate.h */,
 				A777CF701492956F00FC97D3 /* WoodhouseAppDelegate.m */,
+				D01EA6BE14D78F2B00989092 /* WoodhouseKeychain.h */,
+				D01EA6BF14D78F2B00989092 /* WoodhouseKeychain.m */,
 				A777CF721492956F00FC97D3 /* MainMenu.xib */,
 				A7ADD8271492B4CC009B621E /* Panel.xib */,
+				D0A2F34F14D601B800908DEF /* Preferences.xib */,
 				A777CF641492956F00FC97D3 /* Supporting Files */,
 			);
 			path = Woodhouse;
@@ -222,6 +242,7 @@
 				D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */,
 				D0A2F34414D4C41600908DEF /* TestHelper.h */,
 				D0A2F34514D4C41600908DEF /* TestHelper.m */,
+				D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */,
 				A777CF811492956F00FC97D3 /* Supporting Files */,
 			);
 			path = WoodhouseTests;
@@ -269,6 +290,7 @@
 				A777CF561492956F00FC97D3 /* Frameworks */,
 				A777CF571492956F00FC97D3 /* Resources */,
 				D062FF9914C7974A00CD1E67 /* CopyFiles */,
+				D010F6B114D98756006116D1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -334,6 +356,7 @@
 				A777CF6E1492956F00FC97D3 /* Credits.rtf in Resources */,
 				A777CF741492956F00FC97D3 /* MainMenu.xib in Resources */,
 				A7ADD8281492B4CC009B621E /* Panel.xib in Resources */,
+				D0A2F35914D60EC600908DEF /* Preferences.xib in Resources */,
 				D0FE7A0E1493121000A02CFE /* watchdog-ok.png in Resources */,
 				A7AC3EDA14AE634000887520 /* watchdog-error.png in Resources */,
 				A7F9925114C0EB3800008A49 /* icon.icns in Resources */,
@@ -345,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A777CF851492956F00FC97D3 /* InfoPlist.strings in Resources */,
+				D0A2F35014D601B800908DEF /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +388,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		D010F6B114D98756006116D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${CONFIGURATION} == \"Debug\" ]]\nthen\n# -f means force to re-sign even if already signed\ncodesign -v -f -s \"Braintree Open Source\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -378,6 +415,8 @@
 				D0FE7A11149313D800A02CFE /* BuildStatusChecker.m in Sources */,
 				D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */,
 				D062FF9814C4C19600CD1E67 /* BuildStatusNotifier.m in Sources */,
+				D0A2F35314D602E900908DEF /* PreferencesController.m in Sources */,
+				D01EA6C014D78F2B00989092 /* WoodhouseKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +426,7 @@
 			files = (
 				D062FFA014CCFD0500CD1E67 /* BuildStatusCheckerTests.m in Sources */,
 				D0A2F34614D4C41600908DEF /* TestHelper.m in Sources */,
+				D010F6B714DA4468006116D1 /* WoodhouseKeychainTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +491,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -472,7 +512,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -485,6 +525,7 @@
 		A777CF8D1492957000FC97D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,8 +533,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -501,6 +544,7 @@
 		A777CF8E1492957000FC97D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,8 +553,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -525,6 +571,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"${SRCROOT}/TestLibraries\"";
 				INFOPLIST_FILE = "WoodhouseTests/WoodhouseTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -551,6 +598,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"${SRCROOT}/TestLibraries\"";
 				INFOPLIST_FILE = "WoodhouseTests/WoodhouseTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

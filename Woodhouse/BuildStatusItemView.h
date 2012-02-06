@@ -8,18 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PanelController.h"
+#import "PreferencesController.h"
 #import "BuildStatusChecker.h"
 
 @interface BuildStatusItemView : NSView <NSMenuDelegate> {
   NSDictionary *statusIcons;
   PanelController *panelController;
+  PreferencesController *preferencesController;
   NSWindow *panelWindow;
   NSMutableDictionary *buildCounts;
 }
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) BuildStatusChecker *buildStatusChecker;
-@property (strong, nonatomic) NSString *title;
 
 @property (nonatomic, strong) NSMenu *statusMenu;
 

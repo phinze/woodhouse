@@ -8,23 +8,27 @@
 
 #import "BuildStatusItemView.h"
 #import "Build.h"
+#import "Notifications.h"
 
 @implementation BuildStatusItemView
 
 @synthesize statusItem;
 @synthesize statusMenu;
 @synthesize buildStatusChecker;
-@synthesize title;
 
 #define SUCCESSFUL_BUILDS 0
 #define FAILED_BUILDS 1
+
+@interface BuildStatusItemView (Private)
+-(int)measureWidth;
+-(void)drawIcons;
+@end
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
       self.statusItem = nil;
-      self.title = @"";
       statusIcons = [NSDictionary dictionaryWithObjectsAndKeys:
         [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-ok" ofType:@"png"]], @"Success",
         [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"watchdog-error" ofType:@"png"]], @"Failure",
@@ -32,10 +36,15 @@
       ];
 
       self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
-      [statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""];
+      [[statusMenu addItemWithTitle:@"Check Now" action:@selector(checkNow:) keyEquivalent:@""] setTarget:self];
+      [[statusMenu addItemWithTitle:@"Preferences" action:@selector(openPreferences:) keyEquivalent:@""] setTarget:self];
+      [[statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""] setTarget:self];
 
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
+      preferencesController = [[PreferencesController alloc] initWithWindowNibName:@"Preferences"];
       buildCounts = [[NSMutableDictionary alloc] init];
+      [buildCounts setObject:@"?" forKey:@"Success"];
+      [buildCounts setObject:@"?" forKey:@"Failure"];
 
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buildsDidUpdate:) name:@"WoodhouseBuildsUpdated" object:nil];
     }
@@ -52,7 +61,7 @@
   [self setNeedsDisplay:YES];
 }
 
-- (NSColor *)titleForegroundColor {
+- (NSColor *)textForegroundColor {
   if ([self isPanelVisible]) {
     return [NSColor whiteColor];
   }
@@ -65,7 +74,7 @@
   // Use default menu bar font size
   NSFont *font = [NSFont menuBarFontOfSize:0];
 
-  NSColor *foregroundColor = [self titleForegroundColor];
+  NSColor *foregroundColor = [self textForegroundColor];
 
   return [NSDictionary dictionaryWithObjectsAndKeys:
           font,            NSFontAttributeName,
@@ -99,7 +108,12 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
   [[NSGraphicsContext currentContext] setShouldAntialias:YES];
+  [statusItem setLength:[self measureWidth]];
+  [statusItem drawStatusBarBackgroundInRect:[self bounds] withHighlight:[self isPanelVisible]];
+  [self drawIcons];
+}
 
+-(int)measureWidth {
   NSImage *icon;
   int new_width = StatusItemViewPaddingWidth;
 
@@ -109,17 +123,19 @@
       new_width += [self widthOfText:[NSString stringWithFormat:@"%@",[buildCounts objectForKey:key]]] + StatusItemViewPaddingWidth;
     }
   }
-  [statusItem setLength:new_width];
+  return new_width;
 
-  // Draw status bar background, highlighted if menu is showing
-  [statusItem drawStatusBarBackgroundInRect:[self bounds] withHighlight:[self isPanelVisible]];
+}
 
+-(void)drawIcons {
+  NSImage *icon;  
   NSPoint draw_cursor = NSMakePoint(StatusItemViewPaddingWidth, StatusItemViewPaddingHeight);
+
   for(NSString *key in buildCounts) {
     if((icon = [statusIcons objectForKey:key])) {
       [icon drawAtPoint:draw_cursor fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
       draw_cursor.x += icon.size.width + StatusItemViewInternalPaddingWidth;
-
+      
       NSString *text = [NSString stringWithFormat:@"%@",[buildCounts objectForKey:key]];
       [text drawAtPoint:draw_cursor withAttributes:[self textAttributes]];
       draw_cursor.x += [self widthOfText:text] + StatusItemViewPaddingWidth;
@@ -158,6 +174,14 @@
 - (void)menuDidClose:(NSMenu *)menu {
   [menu setDelegate:nil];
   [self setNeedsDisplay:YES];
+}
+
+- (void) checkNow:(id)sender {
+  [[NSNotificationCenter defaultCenter] postNotificationName:CHECK_BUILDS_NOW object:nil];
+}
+
+- (void) openPreferences:(id)sender {
+  [preferencesController openWindow];
 }
 
 - (void) quit:(id)sender {

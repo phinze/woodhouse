@@ -32,8 +32,4 @@
   [buildStatusItemView deactivate];
 }
 
-- (void) quit:(id)sender {
-  [NSApp terminate:sender];
-}
-
 @end
