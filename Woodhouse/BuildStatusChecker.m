@@ -56,17 +56,14 @@
 }
 
 - (void) scheduleNextCheck {
-  timer = [NSTimer timerWithTimeInterval:[self buildDelaySeconds]
-                                  target:self
-                                selector:@selector(updateBuilds:)
-                                userInfo:nil
-                                 repeats:NO];
+  double seconds = [self buildDelaySeconds];
+  timer = [NSTimer timerWithTimeInterval:seconds target:self selector:@selector(updateBuilds:) userInfo:nil repeats:NO];
   [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 - (double) buildDelaySeconds {
   NSString *delayFromPreferences = [[NSUserDefaults standardUserDefaults] objectForKey:@"Build Update Delay"];
-  return (delayFromPreferences == @"") ? DEFAULT_BUILD_UPDATE_DELAY_SECONDS : [delayFromPreferences floatValue];
+  return ([delayFromPreferences length] == 0) ? DEFAULT_BUILD_UPDATE_DELAY_SECONDS : [delayFromPreferences floatValue];
 }
 
 # pragma mark build diff methods

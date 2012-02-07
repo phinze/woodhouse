@@ -399,7 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${CONFIGURATION} == \"Debug\" ]]\nthen\n# -f means force to re-sign even if already signed\ncodesign -v -f -s \"Braintree Open Source\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+			shellScript = "# -f means force to re-sign even if already signed\ncodesign -v -f -s \"Braintree Open Source\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -481,6 +481,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -507,6 +508,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -536,6 +538,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
@@ -556,6 +559,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
