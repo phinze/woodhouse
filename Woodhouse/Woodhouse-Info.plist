@@ -39,6 +39,6 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string>https://phinze.github.com/woodhouse/appcast.xml</string>
+	<string>http://phinze.github.com/woodhouse/appcast.xml</string>
 </dict>
 </plist>

@@ -1,0 +1,18 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    fssm (0.2.8.1)
+    ocrunner (0.4.0)
+      fssm
+      oniguruma
+      trollop
+    oniguruma (1.1.0)
+    plist (3.1.0)
+    trollop (1.16.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ocrunner
+  plist
