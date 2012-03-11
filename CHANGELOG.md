@@ -1,3 +1,8 @@
+## Woodhouse 0.5.0
+
+ * A stab at 10.6 support
+ * An about window
+
 ## Woodhouse 0.4.0
 
  * Auto-update with Sparkle
