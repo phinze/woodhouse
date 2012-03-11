@@ -5,6 +5,18 @@
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
     <item>
+      <title>Version 0.5.0 (Sparkle)</title>
+      <sparkle:releaseNotesLink>
+        https://raw.github.com/phinze/woodhouse/master/CHANGELOG.md
+      </sparkle:releaseNotesLink>
+      <pubDate>Sun, 10 Mar 2012 00:00:00 -0000</pubDate>
+      <enclosure url="http://cloud.github.com/downloads/phinze/woodhouse/Woodhouse-0.5.0.dmg" 
+        sparkle:version="0.5.0"
+        length="967150"
+        sparkle:dsaSignature="MC0CFQDAhAYtM8sWC+lTfQM34bqBT70yBwIUKSHXt5n4HzJO22QJ6KS8Y6eknf8="
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 0.4.0 (Sparkle)</title>
       <sparkle:releaseNotesLink>
         https://raw.github.com/phinze/woodhouse/master/CHANGELOG.md
