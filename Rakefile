@@ -1,15 +1,19 @@
+desc 'run tests for woodhouse'
 task :test do
   sh "ocrunner -s macosx10.7 -t WoodhouseTests"
 end
 
+desc 'automatically run tests when files change'
 task :autotest do
   sh "ocrunner -a -g -s macosx10.7 -t WoodhouseTests"
 end
 
+desc 'build release target of woodhouse'
 task :build do
   sh "xcodebuild -scheme Release -target Woodhouse"
 end
 
+desc 'build, sign, and package a Woodhouse dmg'
 task :package => :build do
   require 'rubygems'
   require 'plist'
