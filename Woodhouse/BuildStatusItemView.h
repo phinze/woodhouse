@@ -1,11 +1,3 @@
-//
-//  BuildStatusItemView.h
-//  Woodhouse
-//
-//  Created by Paul Hinze on 12/10/11.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
 #import "PanelController.h"
 #import "PreferencesController.h"

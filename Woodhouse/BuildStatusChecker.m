@@ -1,11 +1,3 @@
-//
-//  BuildStatusChecker.m
-//  Woodhouse
-//
-//  Created by Paul Hinze on 12/9/11.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
 #import "BuildStatusChecker.h"
 #import "Build.h"
 #import "Notifications.h"

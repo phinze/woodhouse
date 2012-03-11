@@ -1,11 +1,3 @@
-//
-//  BuildStatusItemView.m
-//  Woodhouse
-//
-//  Created by Paul Hinze on 12/10/11.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
 #import "BuildStatusItemView.h"
 #import "Build.h"
 #import "Notifications.h"

@@ -1,11 +1,3 @@
-//
-//  BuildStatusCheckerTests.m
-//  Woodhouse
-//
-//  Created by Paul Hinze on 1/22/12.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
 #import "BuildStatusCheckerTests.h"
 #import "BuildStatusChecker.h"
 #import "TestHelper.h"

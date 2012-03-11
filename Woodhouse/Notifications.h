@@ -1,11 +1,3 @@
-//
-//  Notifications.h
-//  Woodhouse
-//
-//  Created by Paul Hinze on 1/28/12.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
 #ifndef Woodhouse_Notifications_h
 #define Woodhouse_Notifications_h
 
