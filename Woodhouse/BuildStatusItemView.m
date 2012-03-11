@@ -38,6 +38,7 @@
       self.statusMenu = [[NSMenu alloc] initWithTitle:@""];
       [[statusMenu addItemWithTitle:@"Check Now" action:@selector(checkNow:) keyEquivalent:@""] setTarget:self];
       [[statusMenu addItemWithTitle:@"Preferences" action:@selector(openPreferences:) keyEquivalent:@""] setTarget:self];
+      [[statusMenu addItemWithTitle:@"About" action:@selector(about:) keyEquivalent:@""] setTarget:self];
       [[statusMenu addItemWithTitle:@"Quit" action:@selector(quit:) keyEquivalent:@""] setTarget:self];
 
       panelController = [[PanelController alloc] initWithWindowNibName:@"Panel"];
@@ -182,6 +183,10 @@
 
 - (void) openPreferences:(id)sender {
   [preferencesController openWindow];
+}
+
+- (void) about:(id)sender {
+  [NSApp orderFrontStandardAboutPanel:sender];
 }
 
 - (void) quit:(id)sender {
