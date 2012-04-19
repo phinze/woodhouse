@@ -10,7 +10,7 @@ end
 
 desc 'build release target of woodhouse'
 task :build do
-  sh "xcodebuild -scheme Release -target Woodhouse"
+  sh "xcodebuild -scheme Woodhouse -config Release -target Woodhouse"
 end
 
 desc 'build, sign, and package a Woodhouse dmg'
