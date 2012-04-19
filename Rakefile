@@ -13,6 +13,11 @@ task :build do
   sh "xcodebuild -scheme Woodhouse -config Release -target Woodhouse"
 end
 
+desc 'clean all targets'
+task :clean do
+  sh "xcodebuild -alltargets clean"
+end
+
 desc 'build, sign, and package a Woodhouse dmg'
 task :package => :build do
   require 'rubygems'

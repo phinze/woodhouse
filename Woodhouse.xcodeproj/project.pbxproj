@@ -104,7 +104,7 @@
 		D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychainTests.m; sourceTree = "<group>"; };
 		D02CBAEB1540C165001B7CEE /* WoodhouseKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoodhouseKeychain.h; sourceTree = "<group>"; };
 		D02CBAEC1540C165001B7CEE /* WoodhouseKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychain.m; sourceTree = "<group>"; };
-		D058197B14CD17A0003C36E2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		D058197B14CD17A0003C36E2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = WoodhouseTests/TestLibraries/libOCMock.a; sourceTree = SOURCE_ROOT; };
 		D058197D14CD17A0003C36E2 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		D058197E14CD17A0003C36E2 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
 		D058197F14CD17A0003C36E2 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		D062FF9014C4BC8700CD1E67 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = SOURCE_ROOT; };
 		D062FF9614C4C19600CD1E67 /* BuildStatusNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusNotifier.h; sourceTree = "<group>"; };
 		D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusNotifier.m; sourceTree = "<group>"; };
-		D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuildStatusCheckerTests.m; path = ../Woodhouse/Tests/BuildStatusCheckerTests.m; sourceTree = "<group>"; };
+		D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuildStatusCheckerTests.m; path = WoodhouseTests/BuildStatusCheckerTests.m; sourceTree = SOURCE_ROOT; };
 		D0A2F34414D4C41600908DEF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		D0A2F34514D4C41600908DEF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		D0A2F34F14D601B800908DEF /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 				A777CF811492956F00FC97D3 /* Supporting Files */,
 			);
 			path = WoodhouseTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		A777CF811492956F00FC97D3 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -283,8 +283,9 @@
 				D058198114CD17A0003C36E2 /* OCMockObject.h */,
 				D058198214CD17A0003C36E2 /* OCMockRecorder.h */,
 			);
-			path = OCMock;
-			sourceTree = "<group>";
+			name = OCMock;
+			path = WoodhouseTests/TestLibraries/OCMock;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -587,11 +588,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = "\"${SRCROOT}/TestLibraries\"";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/WoodhouseTests/TestLibraries\"";
 				INFOPLIST_FILE = "WoodhouseTests/WoodhouseTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestLibraries\"",
+					"\"$(SRCROOT)/WoodhouseTests/TestLibraries\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -615,11 +616,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = "\"${SRCROOT}/TestLibraries\"";
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/WoodhouseTests/TestLibraries\"";
 				INFOPLIST_FILE = "WoodhouseTests/WoodhouseTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestLibraries\"",
+					"\"$(SRCROOT)/WoodhouseTests/TestLibraries\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
