@@ -22,7 +22,7 @@
 		A7C893101492CB4600A06695 /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C8930F1492CB4600A06695 /* Build.m */; };
 		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
 		D010F6B714DA4468006116D1 /* WoodhouseKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */; };
-		D01EA6C014D78F2B00989092 /* WoodhouseKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EA6BF14D78F2B00989092 /* WoodhouseKeychain.m */; };
+		D02CBAED1540C165001B7CEE /* WoodhouseKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CBAEC1540C165001B7CEE /* WoodhouseKeychain.m */; };
 		D058198314CD17A0003C36E2 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D058197B14CD17A0003C36E2 /* libOCMock.a */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
@@ -102,8 +102,8 @@
 		A7C8930F1492CB4600A06695 /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
 		A7F9925014C0EB3800008A49 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychainTests.m; sourceTree = "<group>"; };
-		D01EA6BE14D78F2B00989092 /* WoodhouseKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoodhouseKeychain.h; sourceTree = SOURCE_ROOT; };
-		D01EA6BF14D78F2B00989092 /* WoodhouseKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychain.m; sourceTree = SOURCE_ROOT; };
+		D02CBAEB1540C165001B7CEE /* WoodhouseKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoodhouseKeychain.h; sourceTree = "<group>"; };
+		D02CBAEC1540C165001B7CEE /* WoodhouseKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychain.m; sourceTree = "<group>"; };
 		D058197B14CD17A0003C36E2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		D058197D14CD17A0003C36E2 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		D058197E14CD17A0003C36E2 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -113,10 +113,9 @@
 		D058198214CD17A0003C36E2 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		D059F1461493D90800E89E4C /* BuildStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusItemView.h; sourceTree = "<group>"; };
 		D059F1471493D90800E89E4C /* BuildStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusItemView.m; sourceTree = "<group>"; };
-		D062FF9014C4BC8700CD1E67 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		D062FF9014C4BC8700CD1E67 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = SOURCE_ROOT; };
 		D062FF9614C4C19600CD1E67 /* BuildStatusNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusNotifier.h; sourceTree = "<group>"; };
 		D062FF9714C4C19600CD1E67 /* BuildStatusNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildStatusNotifier.m; sourceTree = "<group>"; };
-		D062FF9E14CCFD0400CD1E67 /* BuildStatusCheckerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildStatusCheckerTests.h; path = ../Woodhouse/Tests/BuildStatusCheckerTests.h; sourceTree = "<group>"; };
 		D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuildStatusCheckerTests.m; path = ../Woodhouse/Tests/BuildStatusCheckerTests.m; sourceTree = "<group>"; };
 		D0A2F34414D4C41600908DEF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		D0A2F34514D4C41600908DEF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
@@ -125,7 +124,7 @@
 		D0A2F35214D602E900908DEF /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		D0A2F36114D71FD000908DEF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D0A7681914D4A06200F96594 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
-		D0A987ED14E1F9A4001D5277 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		D0A987ED14E1F9A4001D5277 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		D0A987F014E1FE74001D5277 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		D0FE7A0D1493121000A02CFE /* watchdog-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchdog-ok.png"; sourceTree = "<group>"; };
 		D0FE7A0F149313D800A02CFE /* BuildStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildStatusChecker.h; sourceTree = "<group>"; };
@@ -217,8 +216,8 @@
 				D0A2F35214D602E900908DEF /* PreferencesController.m */,
 				A777CF6F1492956F00FC97D3 /* WoodhouseAppDelegate.h */,
 				A777CF701492956F00FC97D3 /* WoodhouseAppDelegate.m */,
-				D01EA6BE14D78F2B00989092 /* WoodhouseKeychain.h */,
-				D01EA6BF14D78F2B00989092 /* WoodhouseKeychain.m */,
+				D02CBAEB1540C165001B7CEE /* WoodhouseKeychain.h */,
+				D02CBAEC1540C165001B7CEE /* WoodhouseKeychain.m */,
 				A777CF721492956F00FC97D3 /* MainMenu.xib */,
 				A7ADD8271492B4CC009B621E /* Panel.xib */,
 				D0A2F34F14D601B800908DEF /* Preferences.xib */,
@@ -247,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				D058197A14CD17A0003C36E2 /* TestLibraries */,
-				D062FF9E14CCFD0400CD1E67 /* BuildStatusCheckerTests.h */,
 				D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */,
 				D0A2F34414D4C41600908DEF /* TestHelper.h */,
 				D0A2F34514D4C41600908DEF /* TestHelper.m */,
@@ -426,7 +424,7 @@
 				D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */,
 				D062FF9814C4C19600CD1E67 /* BuildStatusNotifier.m in Sources */,
 				D0A2F35314D602E900908DEF /* PreferencesController.m in Sources */,
-				D01EA6C014D78F2B00989092 /* WoodhouseKeychain.m in Sources */,
+				D02CBAED1540C165001B7CEE /* WoodhouseKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +539,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
@@ -549,6 +547,7 @@
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)\" \"$(SRCROOT)/Frameworks\"";
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
@@ -562,7 +561,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Woodhouse/Woodhouse-Prefix.pch";
@@ -571,6 +570,7 @@
 				INFOPLIST_FILE = "Woodhouse/Woodhouse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)\" \"$(SRCROOT)/Frameworks\"";
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};

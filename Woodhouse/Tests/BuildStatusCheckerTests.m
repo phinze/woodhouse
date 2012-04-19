@@ -1,13 +1,16 @@
-#import "BuildStatusCheckerTests.h"
 #import "BuildStatusChecker.h"
 #import "TestHelper.h"
 
+#import <SenTestingKit/SenTestingKit.h>
 #import <Cocoa/Cocoa.h>
 #import <OCMock/OCMock.h>
 
 @interface BuildStatusChecker (Test)
 -(void)updateBuilds:(NSTimer *)t;
 - (double)buildDelaySeconds;
+@end
+
+@interface BuildStatusCheckerTests : SenTestCase
 @end
 
 @implementation BuildStatusCheckerTests
