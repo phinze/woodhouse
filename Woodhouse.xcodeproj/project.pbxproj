@@ -23,6 +23,8 @@
 		A7F9925114C0EB3800008A49 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A7F9925014C0EB3800008A49 /* icon.icns */; };
 		D010F6B714DA4468006116D1 /* WoodhouseKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */; };
 		D02CBAED1540C165001B7CEE /* WoodhouseKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D02CBAEC1540C165001B7CEE /* WoodhouseKeychain.m */; };
+		D02D053B1542116C0019FFA1 /* BuildTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D02D053A1542116C0019FFA1 /* BuildTests.m */; };
+		D02D053E154211B10019FFA1 /* SmokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D02D053D154211B10019FFA1 /* SmokeTests.m */; };
 		D058198314CD17A0003C36E2 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D058197B14CD17A0003C36E2 /* libOCMock.a */; };
 		D059F1481493D90800E89E4C /* BuildStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D059F1471493D90800E89E4C /* BuildStatusItemView.m */; };
 		D062FF9114C4BC8700CD1E67 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062FF9014C4BC8700CD1E67 /* Growl.framework */; };
@@ -104,6 +106,8 @@
 		D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychainTests.m; sourceTree = "<group>"; };
 		D02CBAEB1540C165001B7CEE /* WoodhouseKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoodhouseKeychain.h; sourceTree = "<group>"; };
 		D02CBAEC1540C165001B7CEE /* WoodhouseKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoodhouseKeychain.m; sourceTree = "<group>"; };
+		D02D053A1542116C0019FFA1 /* BuildTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildTests.m; sourceTree = "<group>"; };
+		D02D053D154211B10019FFA1 /* SmokeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeTests.m; sourceTree = "<group>"; };
 		D058197B14CD17A0003C36E2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = WoodhouseTests/TestLibraries/libOCMock.a; sourceTree = SOURCE_ROOT; };
 		D058197D14CD17A0003C36E2 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		D058197E14CD17A0003C36E2 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			children = (
 				D058197A14CD17A0003C36E2 /* TestLibraries */,
 				D062FF9F14CCFD0400CD1E67 /* BuildStatusCheckerTests.m */,
+				D02D053A1542116C0019FFA1 /* BuildTests.m */,
+				D02D053D154211B10019FFA1 /* SmokeTests.m */,
 				D0A2F34414D4C41600908DEF /* TestHelper.h */,
 				D0A2F34514D4C41600908DEF /* TestHelper.m */,
 				D010F6B614DA4468006116D1 /* WoodhouseKeychainTests.m */,
@@ -436,6 +442,8 @@
 				D062FFA014CCFD0500CD1E67 /* BuildStatusCheckerTests.m in Sources */,
 				D0A2F34614D4C41600908DEF /* TestHelper.m in Sources */,
 				D010F6B714DA4468006116D1 /* WoodhouseKeychainTests.m in Sources */,
+				D02D053B1542116C0019FFA1 /* BuildTests.m in Sources */,
+				D02D053E154211B10019FFA1 /* SmokeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

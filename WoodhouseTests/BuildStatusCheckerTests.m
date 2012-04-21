@@ -1,12 +1,9 @@
-#import "BuildStatusChecker.h"
 #import "TestHelper.h"
+#import "BuildStatusChecker.h"
 
-#import <SenTestingKit/SenTestingKit.h>
-#import <Cocoa/Cocoa.h>
-#import <OCMock/OCMock.h>
 
 @interface BuildStatusChecker (Test)
--(void)updateBuilds:(NSTimer *)t;
+- (void)updateBuilds:(NSTimer *)t;
 - (double)buildDelaySeconds;
 @end
 
@@ -14,16 +11,6 @@
 @end
 
 @implementation BuildStatusCheckerTests
-
-#pragma mark ocmock smoke testing
-
-- (void)testMocksWork {
-  id mockString = [OCMockObject mockForClass:[NSString class]];
-
-  [[[mockString stub] andReturn:@"MOCKS ARE UP IN HERE"] lowercaseString];
-
-  STAssertEqualObjects([mockString lowercaseString], @"MOCKS ARE UP IN HERE", nil);
-}
 
 #pragma mark isFirstBuild
 

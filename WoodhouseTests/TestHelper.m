@@ -8,9 +8,6 @@
 
 #import "TestHelper.h"
 
-#import <Cocoa/Cocoa.h>
-#import <OCMock/OCMock.h>
-
 #import "BuildStatusChecker.h"
 
 @interface BuildStatusChecker (Test)
@@ -21,19 +18,24 @@
 @implementation TestHelper
 
 + (BuildStatusChecker *) cannedBuildStatusChecker {
-  NSXMLElement *root = (NSXMLElement *)[NSXMLNode elementWithName:@"Projects"];
-  [root addChild:
-   [NSXMLNode elementWithName:@"Project"
-                     children:nil
-                   attributes:[NSArray arrayWithObjects:
-                               [NSXMLNode attributeWithName:@"name" stringValue:@"some-build"],
-                               [NSXMLNode attributeWithName:@"webUrl" stringValue:@"http://ci.example.com/job/some-build"],
-                               [NSXMLNode attributeWithName:@"lastBuildLabel" stringValue:@"66"],
-                               [NSXMLNode attributeWithName:@"lastBuildTime" stringValue:@"2012-01-17T20:12:47Z"],
-                               [NSXMLNode attributeWithName:@"lastBuildStatus" stringValue:@"Success"],
-                               [NSXMLNode attributeWithName:@"activity" stringValue:@"Sleeping"],
-                               nil]]];
-  NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] initWithRootElement:root];
+  NSError *parsingError;
+
+  NSString *xml =@"<Projects>\n"
+    "<Project name='some-build'"
+    "         webUrl='http://ci.example.com/job/some-build'"
+    "         lastBuildLabel='66'"
+    "         lastBuildTime='2012-01-17T20:12:47Z'"
+    "         lastBuildStatus='Success'"
+    "         activity='Sleeping'"
+    "         />"
+    "</Projects>";
+
+  NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] initWithXMLString:xml options:0 error:&parsingError];
+
+  if (parsingError) {
+    NSLog(@"parsing error for canned test response!");
+    return NULL;
+  }
   NSData *xmlData = [xmlDoc XMLData];
 
   BuildStatusChecker *actual = [[BuildStatusChecker alloc] init];

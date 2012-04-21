@@ -1,13 +1,4 @@
-//
-//  WoodhouseKeychainTests.m
-//  Woodhouse
-//
-//  Created by Paul Hinze on 2/1/12.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
-#import <SenTestingKit/SenTestingKit.h>
-#import <Cocoa/Cocoa.h>
+#import "TestHelper.h"
 #import "WoodhouseKeychain.h"
 
 @interface WoodhouseKeychain (TestMethods)

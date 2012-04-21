@@ -1,12 +1,8 @@
-//
-//  TestHelper.h
-//  Woodhouse
-//
-//  Created by Paul Hinze on 1/28/12.
-//  Copyright (c) 2012 Braintree. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+
+#import <SenTestingKit/SenTestingKit.h>
+#import <OCMock/OCMock.h>
 
 @class BuildStatusChecker;
 
