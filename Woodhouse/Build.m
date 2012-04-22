@@ -8,15 +8,20 @@ NSString * const BuildStatusUnknown = @"Unknown";
 
 @synthesize name, status, url;
 
-- (id)initFromNode:(NSXMLElement *)node {
-    self = [super init];
-    if (self) {
-      name = [[node attributeForName:@"name"] stringValue];
-      status = [[node attributeForName:@"lastBuildStatus"] stringValue];
-      url = [NSURL URLWithString: [[node attributeForName:@"webUrl"] stringValue]];
-    }
+- (id)initWithName:(NSString *)aName status:(NSString *)aStatus url:(NSURL *)aUrl {
+  self = [super init];
+  if (self) {
+    name = aName;
+    status = aStatus;
+    url = aUrl;
+  }
+  return self;
+}
 
-    return self;
+- (id)initFromNode:(NSXMLElement *)node {
+  return [self initWithName:[[node attributeForName:@"name"] stringValue]
+                     status:[[node attributeForName:@"lastBuildStatus"] stringValue]
+                        url:[NSURL URLWithString: [[node attributeForName:@"webUrl"] stringValue]]];
 }
 
 - (BOOL)isFailure {

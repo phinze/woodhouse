@@ -240,8 +240,8 @@
 				A777CF651492956F00FC97D3 /* Woodhouse-Info.plist */,
 				A777CF661492956F00FC97D3 /* InfoPlist.strings */,
 				A777CF691492956F00FC97D3 /* main.m */,
-				A777CF6B1492956F00FC97D3 /* Woodhouse-Prefix.pch */,
 				A777CF6C1492956F00FC97D3 /* Credits.rtf */,
+				A777CF6B1492956F00FC97D3 /* Woodhouse-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

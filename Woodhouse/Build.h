@@ -10,6 +10,7 @@ extern NSString * const BuildStatusUnknown;
 @property (nonatomic, copy, readonly) NSString *status;
 @property (nonatomic, copy, readonly) NSURL *url;
 
+- (id)initWithName:(NSString *)aName status:(NSString *)aStatus url:(NSURL *)aUrl;
 - (id)initFromNode:(NSXMLElement *)node;
 
 - (BOOL)isSuccess;
